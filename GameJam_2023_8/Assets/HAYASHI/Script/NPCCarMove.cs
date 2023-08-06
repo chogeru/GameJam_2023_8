@@ -74,10 +74,20 @@ namespace HAYASHI.Script
             // 次の目的地へ移動
             MoveToDestination(m_CurrentDestinationIndex);
         }
-       /* private void UpdateCounterText()
+
+        private void OnTriggerEnter(Collider other)
         {
-            // テキストオブジェクトに一周回数を表示
-            counterText.text = "Lap: " + lapsCompleted.ToString();
-        }*/
+            if (other.CompareTag("Item"))
+            {
+                Destroy(other.gameObject);
+                m_CarMoveSpeed *= 2;
+            }
+        }
+        /* private void UpdateCounterText()
+         {
+             // テキストオブジェクトに一周回数を表示
+             counterText.text = "Lap: " + lapsCompleted.ToString();
+         }*/
     }
+
 }

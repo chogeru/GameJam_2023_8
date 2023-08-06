@@ -18,6 +18,7 @@ namespace HAYASHI.Script
         private float m_StartTimer= 7;
         [SerializeField]
         private float m_Timer;
+        private bool isStart=false;
      
         private void Start()
         {
@@ -26,10 +27,15 @@ namespace HAYASHI.Script
         }
         private void Update()
         {
-            m_Timer += Time.deltaTime;
-            if (m_StartTimer<m_Timer)
+            if (isStart == false)
             {
-                m_CarMoveSpeed = 25;
+                m_Timer += Time.deltaTime;
+                if (m_StartTimer < m_Timer)
+                {
+                    m_CarMoveSpeed = 25;
+                    m_Timer = 0;
+                    isStart = true;
+                }
             }
         }
         private void MoveToDestination(int destinationIndex)

@@ -28,7 +28,7 @@ public class RankChecker : MonoBehaviour
     void Update()
     {
         //チェックポイント確認
-        for(int i = 0; i< CheckPoint.Length; i++)
+        for (int i = 0; i < CheckPoint.Length; i++)
         {
             if (CheckPoint[i].activeSelf)
             {
@@ -37,11 +37,11 @@ public class RankChecker : MonoBehaviour
             }
         }
 
-        for(int i=0;i<CarList.Length;i++)
+        for (int i = 0; i < CarList.Length; i++)
         {
             Vector3 point = CheckPoint[CheckPointNo].transform.position;
             //CarRankCalc[i] = (CarList[i].transform.position.z -  point.z);
-            CarRankCalc[i] = Vector3.Distance(CarList[i].transform.position,point);
+            CarRankCalc[i] = Vector3.Distance(CarList[i].transform.position, point);
         }
 
         //順位並び替え
@@ -77,5 +77,13 @@ public class RankChecker : MonoBehaviour
         }
 
         return res;
+    }
+
+    public void ClearAllCheckPoint()
+    {
+        for(int i=0;i<CheckPoint.Length;i++)
+        {
+            CheckPoint[i].SetActive(true);
+        }
     }
 }

@@ -69,7 +69,11 @@ public class RankChecker : MonoBehaviour
 
         for (int i = 0; i < CarList.Length; i++)
         {
-            res +=CarList[i].name.ToString();
+            if(res != "")
+            {
+                res += " / ";
+            }
+            res += CarList[i].name.ToString();
         }
 
         return res;

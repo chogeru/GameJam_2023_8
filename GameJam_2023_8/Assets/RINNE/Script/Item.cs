@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    public GameObject item;
+
+    private void Awake()
+    {
+        item = GameObject.Find("Item");
+    }
 
     void Start()
     {
-
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Destroy(other.gameObject);
-        //Debug.Log("‰Á‘¬");
+        
     }
 
     void Update()
     {
-        
+        if(item != null)
+        {
+            
+        }
+        else
+        {
+            item = new GameObject();
+        }
     }
 }

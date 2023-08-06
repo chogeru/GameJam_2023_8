@@ -14,21 +14,24 @@ namespace HAYASHI.Script
         private float m_CarMoveSpeed = 25f;
         // 現在の目的地のインデックス
         private int m_CurrentDestinationIndex = 0;
-       /* 
-        // テキストオブジェクト
         [SerializeField]
-        private Text counterText;
-        // 現在の目的地のインデックス
-        private int currentDestinationIndex = 0;
-        // 一周回った回数をカウント
-        private int lapsCompleted = 0;
-       */
+        private float m_StartTimer= 7;
+        [SerializeField]
+        private float m_Timer;
+     
         private void Start()
         {
-          //  UpdateCounterText();
+            m_CarMoveSpeed = 0;
             MoveToDestination(m_CurrentDestinationIndex);
         }
-
+        private void Update()
+        {
+            m_Timer += Time.deltaTime;
+            if (m_StartTimer<m_Timer)
+            {
+                m_CarMoveSpeed = 25;
+            }
+        }
         private void MoveToDestination(int destinationIndex)
         {
             // 目的地が無効なインデックスの場合は終了
@@ -65,12 +68,9 @@ namespace HAYASHI.Script
             m_CurrentDestinationIndex++;
             if (m_CurrentDestinationIndex >= m_Destinations.Length)
             {
-                // 一周回数を増やす
-             //   lapsCompleted++;
                 // 最後の目的地に到達したら最初に戻る
                 m_CurrentDestinationIndex = 0;
             }
-       //     UpdateCounterText(); // テキストを更新
             // 次の目的地へ移動
             MoveToDestination(m_CurrentDestinationIndex);
         }
@@ -83,11 +83,6 @@ namespace HAYASHI.Script
                 m_CarMoveSpeed *= 2;
             }
         }
-        /* private void UpdateCounterText()
-         {
-             // テキストオブジェクトに一周回数を表示
-             counterText.text = "Lap: " + lapsCompleted.ToString();
-         }*/
     }
 
 }

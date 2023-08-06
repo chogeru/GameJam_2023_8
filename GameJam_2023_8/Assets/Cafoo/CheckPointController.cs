@@ -22,6 +22,9 @@ public class CheckPointController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        this.gameObject.SetActive(false);
+        if (other.gameObject.tag == "Car")
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 }

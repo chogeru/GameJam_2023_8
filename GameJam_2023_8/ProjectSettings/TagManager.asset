@@ -7,6 +7,7 @@ TagManager:
   - CheckpointStart
   - Car
   - Item
+  - Cal
   layers:
   - Default
   - TransparentFX

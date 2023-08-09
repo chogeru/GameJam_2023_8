@@ -1,9 +1,9 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-namespace HAYASHI.Script
+namespace HAYASHI_MORIMOTO.Script
 {
-    [RequireComponent(typeof(NPCCarMove))]
+    [RequireComponent(typeof(NPCCarMove1))]
     public class NPCCarMove1 : MonoBehaviour
     {
         // 目的地のオブジェクトを配列で保持
@@ -18,18 +18,38 @@ namespace HAYASHI.Script
         private float m_StartTimer= 7;
         [SerializeField]
         private float m_Timer;
-     
+        // Calのスクリプト
+        [SerializeField]
+        public Cal m_cal;
+        //スケール
+        [SerializeField]
+        Vector3 m_Scale;
+        //元スケール
+        [SerializeField]
+        Vector3 m_motoScale;
+
         private void Start()
         {
+            m_motoScale = new Vector3(1, 1, 1);
+            m_Scale = transform.localScale;
             m_CarMoveSpeed = 0;
             MoveToDestination(m_CurrentDestinationIndex);
+            
         }
         private void Update()
         {
+            m_Scale = transform.localScale;
             m_Timer += Time.deltaTime;
             if (m_StartTimer<m_Timer)
             {
                 m_CarMoveSpeed = 25;
+            }
+            if (m_motoScale.x < m_Scale.x)
+            {
+                transform.localScale = new Vector3(m_Scale.x - Time.deltaTime * 0.5f, m_Scale.y - Time.deltaTime * 0.5f, m_Scale.z - Time.deltaTime * 0.5f);
+                //m_Scale.x -= Time.deltaTime;
+                //m_Scale.y -= Time.deltaTime;
+                //m_Scale.z -= Time.deltaTime;
             }
         }
         private void MoveToDestination(int destinationIndex)
@@ -81,6 +101,24 @@ namespace HAYASHI.Script
             {
                 Destroy(other.gameObject);
                 m_CarMoveSpeed *= 2;
+            }
+            
+            if(other.CompareTag("Cal"))
+            {
+                Destroy(other.gameObject);
+                switch (m_cal.ChangeCal())
+                {
+                    case 1:
+                        transform.localScale = new Vector3(m_Scale.x * 2, m_Scale.y * 2, m_Scale.z * 2);
+                        break;
+                    case 2:
+                        transform.localScale = new Vector3(m_Scale.x * 3, m_Scale.y * 3, m_Scale.z * 3);
+                        break;
+                    case 3:
+                        transform.localScale = new Vector3(m_Scale.x * 4, m_Scale.y * 4, m_Scale.z * 4);
+                        break;
+                }
+
             }
         }
     }

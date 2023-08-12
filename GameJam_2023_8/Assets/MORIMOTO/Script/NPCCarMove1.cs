@@ -27,29 +27,100 @@ namespace HAYASHI_MORIMOTO.Script
         //元スケール
         [SerializeField]
         Vector3 m_motoScale;
+        //スタートフラグ
+        [SerializeField]
+        private bool isStart = false;
+        //タイムカロリー
+        [SerializeField]
+        private float m_timecal;
+        //Boothフラグ
+        [SerializeField]
+        private bool isBooth = false;
 
         private void Start()
         {
+            //元のScale
             m_motoScale = new Vector3(1, 1, 1);
+            //現在のScale
             m_Scale = transform.localScale;
             m_CarMoveSpeed = 0;
             MoveToDestination(m_CurrentDestinationIndex);
-            
+            m_timecal = 0;
         }
         private void Update()
         {
+            //現在のScale値取得
             m_Scale = transform.localScale;
             m_Timer += Time.deltaTime;
-            if (m_StartTimer<m_Timer)
+            if (!isStart)
             {
-                m_CarMoveSpeed = 25;
+                if (m_StartTimer < m_Timer)
+                {
+                    m_CarMoveSpeed = 25;
+                    isStart = true;
+                }
             }
+            //元のScaleより現在のScaleが大きければ
             if (m_motoScale.x < m_Scale.x)
             {
-                transform.localScale = new Vector3(m_Scale.x - Time.deltaTime * 0.5f, m_Scale.y - Time.deltaTime * 0.5f, m_Scale.z - Time.deltaTime * 0.5f);
-                //m_Scale.x -= Time.deltaTime;
-                //m_Scale.y -= Time.deltaTime;
-                //m_Scale.z -= Time.deltaTime;
+                //だんだんScaleが元の大きさに戻る
+                //transform.localScale = new Vector3(m_Scale.x - Time.deltaTime * 0.1f, m_Scale.y - Time.deltaTime * 0.1f, m_Scale.z - Time.deltaTime * 0.1f);
+                
+                //Spaceキーを押す
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    //Scaleを一段階下げる
+                    transform.localScale = new Vector3(m_Scale.x - 1.0f, m_Scale.y - 1.0f, m_Scale.z - 1.0f);
+                    //ブーストフラグをON
+                    isBooth = true;
+                }
+            }
+            //ブーストフラグがONだったら
+            if (isBooth)
+            {
+                m_timecal += Time.deltaTime;
+                //右の時間までブースト
+                if (m_timecal <= 1.0f)//if (m_timecal <= 1.0f)//if (m_timecal <= 2.0f)
+                {
+                    //加速度
+                    m_CarMoveSpeed += 0.3f;//m_CarMoveSpeed += 0.2f;//m_CarMoveSpeed += 0.1f;
+                }
+                else
+                {
+                    //タイムカロリーを0に戻す
+                    m_timecal = 0;
+                    //ブーストフラグをOFF
+                    isBooth = false;
+                }
+            }
+            else
+            {
+                //スタートカウントが終わったら
+                if (m_StartTimer < m_Timer)
+                {
+                    //Scale値が4倍の時の加速度
+                    if (m_motoScale.x * 4 == m_Scale.x) {
+                        m_CarMoveSpeed = 10;
+
+                    }
+                    //Scale値が3倍の時の加速度
+                    else if (m_motoScale.x * 3 == m_Scale.x)
+                    {
+                        m_CarMoveSpeed = 15;
+                    }
+                    //Scale値が2倍の時の加速度
+                    else if (m_motoScale.x * 2 == m_Scale.x)
+                    {
+                        m_CarMoveSpeed = 20;
+                    }
+                    //Scale値が等倍の時の加速度
+                    else
+                    {
+                        m_CarMoveSpeed = 25;
+                    }
+                }
+                //減速なしの場合
+                //m_CarMoveSpeed = 25;
             }
         }
         private void MoveToDestination(int destinationIndex)
@@ -103,18 +174,24 @@ namespace HAYASHI_MORIMOTO.Script
                 m_CarMoveSpeed *= 2;
             }
             
+            //Scaleチェンジ用
+            //Colliderに接触したとき
             if(other.CompareTag("Cal"))
             {
                 Destroy(other.gameObject);
+                //CalのChangeCal関数から値を取得する
                 switch (m_cal.ChangeCal())
                 {
                     case 1:
+                        //Scale値2倍
                         transform.localScale = new Vector3(m_Scale.x * 2, m_Scale.y * 2, m_Scale.z * 2);
                         break;
                     case 2:
+                        //Scale値3倍
                         transform.localScale = new Vector3(m_Scale.x * 3, m_Scale.y * 3, m_Scale.z * 3);
                         break;
                     case 3:
+                        //Scale値4倍
                         transform.localScale = new Vector3(m_Scale.x * 4, m_Scale.y * 4, m_Scale.z * 4);
                         break;
                 }

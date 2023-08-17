@@ -683,7 +683,7 @@ GameObject:
   - component: {fileID: 767572372}
   - component: {fileID: 767572371}
   m_Layer: 5
-  m_Name: Ki01 (2)
+  m_Name: Ojyou
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -719,7 +719,7 @@ Animator:
   m_GameObject: {fileID: 767572369}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f6bb661037c4e5340be901c93e1314ee, type: 2}
+  m_Controller: {fileID: 9100000, guid: eb03359542b993c44954d9b8e00bff41, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -805,7 +805,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9ce1560353ed8304398ee9beb3c352bc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dbcae92d6f72b8b44ad71821770399fb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1364,7 +1364,7 @@ GameObject:
   - component: {fileID: 1144687388}
   - component: {fileID: 1144687387}
   m_Layer: 5
-  m_Name: Otona_ki01 (1)
+  m_Name: Mekakure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1400,7 +1400,7 @@ Animator:
   m_GameObject: {fileID: 1144687385}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0039de8454b5ac24496a620edadf752f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 58221a00d57f9dd4187540a1ffcd0db9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1486,7 +1486,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3ae4bd40e36528a499af3c457089b516, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7fe821e107e8762479afd370351cf145, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1518,7 +1518,7 @@ GameObject:
   - component: {fileID: 1167939718}
   - component: {fileID: 1167939717}
   m_Layer: 5
-  m_Name: Otona_ki01
+  m_Name: Otona
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1640,7 +1640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3ae4bd40e36528a499af3c457089b516, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0d81085ca4a16254f974638cd134f2b3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1673,7 +1673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1192786182
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2324,7 +2324,7 @@ GameObject:
   - component: {fileID: 1467886763}
   - component: {fileID: 1467886762}
   m_Layer: 5
-  m_Name: Ki01
+  m_Name: Genki
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2360,7 +2360,7 @@ Animator:
   m_GameObject: {fileID: 1467886760}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f6bb661037c4e5340be901c93e1314ee, type: 2}
+  m_Controller: {fileID: 9100000, guid: db8f4ca5995dd39488875ee762eb4ad4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2446,7 +2446,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9ce1560353ed8304398ee9beb3c352bc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e80d8ac76d301ff41842651d0065b31e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2520,7 +2520,7 @@ GameObject:
   - component: {fileID: 1715578119}
   - component: {fileID: 1715578118}
   m_Layer: 5
-  m_Name: Ki01 (3)
+  m_Name: Otokonoko
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2556,7 +2556,7 @@ Animator:
   m_GameObject: {fileID: 1715578116}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f6bb661037c4e5340be901c93e1314ee, type: 2}
+  m_Controller: {fileID: 9100000, guid: d34bbd947ca1dcd4484c903fe6fcfa29, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2642,7 +2642,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9ce1560353ed8304398ee9beb3c352bc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b711ca4c9b2784f43aad89e265d867d3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2674,7 +2674,7 @@ GameObject:
   - component: {fileID: 1756470996}
   - component: {fileID: 1756470995}
   m_Layer: 5
-  m_Name: Ki01 (1)
+  m_Name: Megane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2710,7 +2710,7 @@ Animator:
   m_GameObject: {fileID: 1756470993}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f6bb661037c4e5340be901c93e1314ee, type: 2}
+  m_Controller: {fileID: 9100000, guid: dcb313a97c1de4f4cb8bee81db418bee, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2796,7 +2796,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9ce1560353ed8304398ee9beb3c352bc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7acfb515d7ff60b459d02450e5a7d4b1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2829,7 +2829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1832194889
 RectTransform:
   m_ObjectHideFlags: 0

@@ -6,9 +6,18 @@ public class Item : MonoBehaviour
 {
     public GameObject item;
 
-    private void Awake()
+    private void OnTriggerEnter(Collider other)
     {
-        item = GameObject.Find("Item");
+        if(other.CompareTag("Player"))
+        {
+            StartCoroutine("Resporn");
+        }
+    }
+
+    IEnumerator Resporn()
+    {
+        yield return new WaitForSeconds(2.0f);
+        Instantiate(item);
     }
 
     void Start()
@@ -18,13 +27,6 @@ public class Item : MonoBehaviour
 
     void Update()
     {
-        if(item != null)
-        {
-            
-        }
-        else
-        {
-            item = new GameObject();
-        }
+
     }
 }

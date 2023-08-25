@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 namespace HAYASHI.Script
 {
-    [RequireComponent(typeof(NPCCarMove))]
+  
     public class NPCCarMove : MonoBehaviour
     {
         // 目的地のオブジェクトを配列で保持

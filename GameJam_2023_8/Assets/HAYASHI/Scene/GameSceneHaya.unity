@@ -429,6 +429,10 @@ PrefabInstance:
       value: NPCCar (2)
       objectReference: {fileID: 0}
     - target: {fileID: 3591218383228103943, guid: 9163d1f923e013a4a9bc54135400724a, type: 3}
+      propertyPath: m_StartTimer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591218383228103943, guid: 9163d1f923e013a4a9bc54135400724a, type: 3}
       propertyPath: m_Destinations.Array.data[0]
       value: 
       objectReference: {fileID: 2059061675}
@@ -1920,6 +1924,10 @@ PrefabInstance:
       value: NPCCar (4)
       objectReference: {fileID: 0}
     - target: {fileID: 3591218383228103943, guid: 9163d1f923e013a4a9bc54135400724a, type: 3}
+      propertyPath: m_StartTimer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591218383228103943, guid: 9163d1f923e013a4a9bc54135400724a, type: 3}
       propertyPath: m_Destinations.Array.data[0]
       value: 
       objectReference: {fileID: 2059061675}
@@ -2689,6 +2697,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6e52d7e7035eb2340aa97edc284f1754, type: 2}
+    - target: {fileID: 3591218383228103943, guid: 9163d1f923e013a4a9bc54135400724a, type: 3}
+      propertyPath: m_StartTimer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3591218383228103943, guid: 9163d1f923e013a4a9bc54135400724a, type: 3}
       propertyPath: m_Destinations.Array.data[0]
       value: 
@@ -4490,6 +4502,10 @@ PrefabInstance:
     - target: {fileID: 3591218383228103938, guid: 9163d1f923e013a4a9bc54135400724a, type: 3}
       propertyPath: m_Name
       value: NPCCar (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591218383228103943, guid: 9163d1f923e013a4a9bc54135400724a, type: 3}
+      propertyPath: m_StartTimer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3591218383228103943, guid: 9163d1f923e013a4a9bc54135400724a, type: 3}
       propertyPath: m_Destinations.Array.data[0]
@@ -20118,6 +20134,10 @@ PrefabInstance:
       value: NPCCar (3)
       objectReference: {fileID: 0}
     - target: {fileID: 3591218383228103943, guid: 9163d1f923e013a4a9bc54135400724a, type: 3}
+      propertyPath: m_StartTimer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591218383228103943, guid: 9163d1f923e013a4a9bc54135400724a, type: 3}
       propertyPath: m_Destinations.Array.data[0]
       value: 
       objectReference: {fileID: 2059061675}
@@ -20935,6 +20955,10 @@ PrefabInstance:
     - target: {fileID: 3591218383228103938, guid: 9163d1f923e013a4a9bc54135400724a, type: 3}
       propertyPath: m_Name
       value: NPCCar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591218383228103943, guid: 9163d1f923e013a4a9bc54135400724a, type: 3}
+      propertyPath: m_StartTimer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3591218383228103943, guid: 9163d1f923e013a4a9bc54135400724a, type: 3}
       propertyPath: m_Destinations.Array.data[0]

@@ -26,5 +26,9 @@ public class SelectCharacter : MonoBehaviour
     {
         m_CheckUI.SetActive(true);
     }
+    public void OnClickToCheckUIClose()
+    {
+        m_CheckUI.SetActive(false);
+    }
 
 }

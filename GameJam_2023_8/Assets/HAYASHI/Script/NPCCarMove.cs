@@ -19,7 +19,11 @@ namespace HAYASHI.Script
         [SerializeField]
         private float m_Timer;
         private bool isStart=false;
-     
+        [SerializeField, Header("アイテム所得時のエフェクト")]
+        private GameObject m_ItemEffect;
+        [SerializeField, Header("アイテム所得時のSE")]
+        private AudioClip m_ItemGetSE;
+        private float mVolume = 1;
         private void Start()
         {
             m_CarMoveSpeed = 0;
@@ -85,6 +89,10 @@ namespace HAYASHI.Script
         {
             if (other.CompareTag("Item"))
             {
+                //サウンドの再生
+                AudioSource.PlayClipAtPoint(m_ItemGetSE, transform.position, mVolume);
+                //パーティクルの複製
+                Instantiate(m_ItemEffect.gameObject.transform);
                 Destroy(other.gameObject);
                 m_CarMoveSpeed *= 2;
             }

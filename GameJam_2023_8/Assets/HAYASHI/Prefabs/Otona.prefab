@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 3119052068360996012}
   m_Layer: 3
   m_Name: Otona
-  m_TagString: Car
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,6 +224,8 @@ MonoBehaviour:
   m_RotationSpeed: 90
   m_CurrentSpeed: 0
   m_StartTime: 3
+  m_ItemEffect: {fileID: 6781723888602184034, guid: 9e278b7c09cd6a442b14108c474c8448, type: 3}
+  m_ItemGetSE: {fileID: 8300000, guid: 4cbd9b0fb5b3e8141a6b88eae7834a14, type: 3}
 --- !u!135 &3119052068360996012
 SphereCollider:
   m_ObjectHideFlags: 0

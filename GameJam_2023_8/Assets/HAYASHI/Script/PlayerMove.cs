@@ -21,7 +21,11 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private float m_StartTime=3;
     private float m_Time = 0f;
-
+    [SerializeField, Header("アイテム所得時のエフェクト")]
+    private GameObject m_ItemEffect;
+    [SerializeField, Header("アイテム所得時のSE")]
+    private AudioClip m_ItemGetSE;
+    private float mVolume = 1;
     private void Update()
     {
         m_Time += Time.deltaTime;
@@ -98,6 +102,19 @@ public class PlayerMove : MonoBehaviour
                 //Dキーの入力で時計回りに回転させている
                 transform.Rotate(Vector3.up, m_RotationSpeed * Time.deltaTime);
             }
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Item"))
+        {
+            //サウンドの再生
+            AudioSource.PlayClipAtPoint(m_ItemGetSE, transform.position, mVolume);
+            //パーティクルの複製
+            Instantiate(m_ItemEffect.gameObject.transform);
+            Destroy(other.gameObject);
+            m_MaxSpeed *= 2;
+            m_AccelerationRate *= 2;
         }
     }
 }

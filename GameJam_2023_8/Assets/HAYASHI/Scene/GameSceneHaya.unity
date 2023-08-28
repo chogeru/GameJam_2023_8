@@ -691,7 +691,7 @@ MonoBehaviour:
   - {fileID: 1794774868}
   - {fileID: 808797540}
   CarRankCalc: []
-  CheckPointNo: 0
+  CheckPointNo: 6
 --- !u!4 &71024459
 Transform:
   m_ObjectHideFlags: 0

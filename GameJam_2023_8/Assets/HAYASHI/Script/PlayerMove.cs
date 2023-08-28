@@ -86,18 +86,18 @@ public class PlayerMove : MonoBehaviour
             float verticalInput = Input.GetAxis("Vertical");
             //移動ベクトルを計算、horizontalInputは水平方向の入力でverticalInputは垂直方向の入力、Y軸は使用していないため0に
             //m_CurrentSpeedは現在の速度の変数で移動ベクトルとかけることで移動を行う
-            Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * m_CurrentSpeed * Time.deltaTime;
+            Vector3 movement = new Vector3(verticalInput, 0f, horizontalInput) * m_CurrentSpeed * Time.deltaTime;
             //上で計算されたベクトルを使用して移動させている
             //https://webst8.com/blog/css-transform-translate/
             transform.Translate(movement);
 
             // 回転処理
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.S))
             {
                 //Aキーの入力で反時計回りに回転させる
                 transform.Rotate(Vector3.up, -m_RotationSpeed * Time.deltaTime);
             }
-            else if (Input.GetKey(KeyCode.D))
+            else if (Input.GetKey(KeyCode.W))
             {
                 //Dキーの入力で時計回りに回転させている
                 transform.Rotate(Vector3.up, m_RotationSpeed * Time.deltaTime);

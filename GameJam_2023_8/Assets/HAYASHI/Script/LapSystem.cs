@@ -5,13 +5,21 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class LapSystem : MonoBehaviour
 {
-    public Text m_CheckPointText;
+    
+    private Text m_CheckPointText;
     private int m_TotalCheckPoints = 3;
     private int m_CheckPointsReached = 0;
     [SerializeField]
     private string m_SceneName = "";
     private void Start()
     {
+        GameObject checkpointTextObject = GameObject.FindGameObjectWithTag("RapText");
+
+        // テキストオブジェクトから Text コンポーネントを取得
+        if (checkpointTextObject != null)
+        {
+            m_CheckPointText = checkpointTextObject.GetComponent<Text>();
+        }
         UpdateCheckpointText();
     }
     private void OnTriggerEnter(Collider other)

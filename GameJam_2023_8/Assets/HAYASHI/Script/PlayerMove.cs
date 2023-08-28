@@ -28,7 +28,9 @@ public class PlayerMove : MonoBehaviour
     private float mVolume = 1;
     private void Update()
     {
+        //m_Time‚É‰ÁŽZ
         m_Time += Time.deltaTime;
+        //m_StartTime‚æ‚èm_Time‚Ì’l‚ª‘å‚«‚­‚È‚Á‚½‚ç
         if (m_Time > m_StartTime)
         {
             // ’n–Ê‚ÉÚ’n‚µ‚Ä‚¢‚é‚©‚Ì”»’è

@@ -9,6 +9,10 @@ TagManager:
   - Item
   - Cal
   - RapText
+  - ItemAnimeUI
+  - ItemUI
+  - ItemGetSE
+  - ItemSetSE
   layers:
   - Default
   - TransparentFX

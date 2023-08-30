@@ -13,28 +13,24 @@ public class ImageSwitcher : MonoBehaviour
     public Sprite suzuka;
 
     private Image image;
-
-    [SerializeField]
-    RankChecker rankchecker;
+     
     // Start is called before the first frame update
     void Start()
     {
-
-
-        ////オブジェクトを名前で探す
-        //GameObject resultObj = GameObject.Find("Image_1st");
-        ////変数「test」を参照しDebug.Logに出力
-        //Debug.Log(resultObj.GetComponent<GamePlaying>().test);
+        Debug.Log("アプリケーションが開始されました。");
+        //オブジェクトを名前で探す
+        var rankChecerObj = GameObject.Find("RankChecker");
+        var rankChecer = rankChecerObj.GetComponent<RankChecker>();
+        var rankText = rankChecer.GetRankText(); // "ジェシカ / サラ / コベル";
+        var names = rankText.Split(" / ");
 
         for (int i = 0; i < 3; i++)
         {
-            var name = rankchecker.GetRankText().Split(" / ")[i];
-            GameObject resultObj = 
+            var name = names[i];
+            GameObject resultObj =
                 (i == 1) ? GameObject.Find("Image_1st")
                 : (i == 2) ? GameObject.Find("Image_2nd")
                 : GameObject.Find("Image_3rd");
-
-            Glo
 
             switch (name)
             {
@@ -58,7 +54,6 @@ public class ImageSwitcher : MonoBehaviour
                     break;
             }
         }
-
     }
 
     // Update is called once per frame

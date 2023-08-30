@@ -20,6 +20,7 @@ public class RankChecker : MonoBehaviour
 
     void Start()
     {
+        DontDestroyOnLoad(this);
         CarList = GameObject.FindGameObjectsWithTag("Car");
         CarRankCalc = new float[CarList.Length];
     }

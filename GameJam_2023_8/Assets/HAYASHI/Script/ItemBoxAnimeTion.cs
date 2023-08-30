@@ -70,10 +70,7 @@ public class ItemBoxAnimeTion : MonoBehaviour
             if (m_ActivationTimer >= m_ActivationDelay)
             {
                 int randomIndex = Random.Range(0, m_UIObjects.Length);
-                for (int i = 0; i < m_UIObjects.Length; i++)
-                {
-                    m_UIObjects[i].SetActive(i == randomIndex);
-                }
+                m_UIObjects[randomIndex].SetActive(true);
                 //アイテムセット時のSEも再生
                 m_ItemSetSE.SetActive(true);
                 //すでに再生されているアイテムゲット時のSEをストップ

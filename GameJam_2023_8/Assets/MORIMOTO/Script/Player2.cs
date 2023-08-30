@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player1 : MonoBehaviour
+public class Player2 : MonoBehaviour
 {
     [SerializeField, Header("‰Á‘¬“x‚ÌƒŒ[ƒg")]
     private float m_AccelerationRate = 1f;

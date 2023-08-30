@@ -7,7 +7,7 @@ public class ItemBox : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         
-        if(collision.CompareTag("Car"))
+        if(collision.CompareTag("Player"))
         {
             gameObject.SetActive(false);
         }

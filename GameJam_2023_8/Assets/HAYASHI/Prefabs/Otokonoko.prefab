@@ -100,9 +100,10 @@ GameObject:
   - component: {fileID: 3119052068360996012}
   - component: {fileID: 4546800195044745757}
   - component: {fileID: -4725494693105592113}
+  - component: {fileID: 96979803900896657}
   m_Layer: 3
   m_Name: Otokonoko
-  m_TagString: Car
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -239,6 +240,8 @@ MonoBehaviour:
   m_JumpForce: 10
   m_RotationSpeed: 90
   m_CurrentSpeed: 0
+  m_ItemEffect: {fileID: 6781723888602184034, guid: 9e278b7c09cd6a442b14108c474c8448, type: 3}
+  m_ItemGetSE: {fileID: 8300000, guid: 4cbd9b0fb5b3e8141a6b88eae7834a14, type: 3}
 --- !u!114 &-4725494693105592113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +258,19 @@ MonoBehaviour:
   m_UiTag: ItemUI
   isItemGet: 0
   m_ItemGetSE: {fileID: 0}
-  m_SetItemSE: {fileID: 8300000, guid: cfd7ce72154e96042bbe7fcdff07e9b8, type: 3}
+  m_ItemSetSE: {fileID: 0}
+--- !u!114 &96979803900896657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3063110765991997996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f2d94864ce86a847b5675e9081c5815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3063110766314516698
 GameObject:
   m_ObjectHideFlags: 0

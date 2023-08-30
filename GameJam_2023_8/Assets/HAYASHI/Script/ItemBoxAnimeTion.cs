@@ -28,14 +28,11 @@ public class ItemBoxAnimeTion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //プレイヤーをプレハブから召喚する作り方のため、タグの乱用になっていますがご了承ください
-        //一応プレイヤー選択時の処理を変更するとこの処理を使用しなくて問題ないですが、今回は今から変更するのは
-        //時間が足りないのでお許しください
-        m_ItemGetAnimeObj = GameObject.FindGameObjectWithTag("ItemAnimeUI");
+        m_ItemGetAnimeObj = GameObject.Find("アイテムアニメーション");
         m_ItemGetAnimeObj.SetActive(false);
-        m_ItemGetSE = GameObject.FindGameObjectWithTag("ItemGetSE");
+        m_ItemGetSE = GameObject.Find("ItemGetSE");
         m_ItemGetSE.SetActive(false);
-        m_ItemSetSE = GameObject.FindGameObjectWithTag("ItemSetSE");
+        m_ItemSetSE = GameObject.Find("ItemSetSE");
         m_ItemSetSE.SetActive(false);
         m_UIObjects = GameObject.FindGameObjectsWithTag(m_UiTag);
       

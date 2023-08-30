@@ -11,8 +11,16 @@ public class LapSystem : MonoBehaviour
     private int m_CheckPointsReached = 0;
     [SerializeField]
     private string m_SceneName = "";
+    //三週回り切った後のSE
+    private GameObject m_ClereSE;
+    private GameObject m_ClereEffect;
     private void Start()
     {
+        
+        m_ClereSE = GameObject.Find("クリアSE");
+        m_ClereEffect = GameObject.Find("FinishEffect");
+        m_ClereSE.SetActive(false);
+        m_ClereEffect.SetActive(false);
         GameObject checkpointTextObject = GameObject.FindGameObjectWithTag("RapText");
 
         // テキストオブジェクトから Text コンポーネントを取得
@@ -31,8 +39,9 @@ public class LapSystem : MonoBehaviour
 
             if (m_CheckPointsReached >= m_TotalCheckPoints)
             {
-                new WaitForSeconds(5f);
-                SceneManager.LoadScene(m_SceneName);
+                m_ClereSE.SetActive(true);
+                m_ClereEffect.SetActive(true);
+                StartCoroutine(LoadSceneAfterDelay(3f, m_SceneName));
             }
         }
     }
@@ -43,5 +52,10 @@ public class LapSystem : MonoBehaviour
         {
             m_CheckPointText.text = "Lap" + m_CheckPointsReached + "/" + m_TotalCheckPoints;
         }
+    }
+    private IEnumerator LoadSceneAfterDelay(float delay, string sceneName)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(sceneName);
     }
 }

@@ -197,10 +197,10 @@ GameObject:
   - component: {fileID: 3063110765991997992}
   - component: {fileID: 3063110765991997994}
   - component: {fileID: 3119052068360996012}
-  - component: {fileID: -8868511122519724779}
   - component: {fileID: 7705459503738407449}
   - component: {fileID: 6703024496185102440}
   - component: {fileID: -201187971122853019}
+  - component: {fileID: -1320878387715769393}
   m_Layer: 3
   m_Name: Genki
   m_TagString: Player
@@ -323,25 +323,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: 2, z: 0}
---- !u!114 &-8868511122519724779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3063110765991997996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f15e50409d39d94ab9673db5123945b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AccelerationRate: 20
-  m_MaxSpeed: 25
-  m_JumpForce: 10
-  m_RotationSpeed: 90
-  m_CurrentSpeed: 0
-  m_ItemEffect: {fileID: 6781723888602184034, guid: 9e278b7c09cd6a442b14108c474c8448, type: 3}
-  m_ItemGetSE: {fileID: 8300000, guid: 4cbd9b0fb5b3e8141a6b88eae7834a14, type: 3}
 --- !u!114 &7705459503738407449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,6 +372,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-1320878387715769393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3063110765991997996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44817f09b969c1040ac89cd0e5287f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AccelerationRate: 20
+  m_MaxSpeed: 25
+  m_JumpForce: 10
+  m_RotationSpeed: 90
+  m_CurrentSpeed: 0
+  m_ItemEffect: {fileID: 0}
+  m_ItemGetSE: {fileID: 0}
 --- !u!1 &3063110766314516698
 GameObject:
   m_ObjectHideFlags: 0

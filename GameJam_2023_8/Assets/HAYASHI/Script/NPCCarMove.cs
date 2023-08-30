@@ -94,7 +94,7 @@ namespace HAYASHI.Script
                 //パーティクルの複製
                 Instantiate(m_ItemEffect.gameObject.transform);
                 Destroy(other.gameObject);
-                m_CarMoveSpeed *= 2;
+                m_CarMoveSpeed +=10;
             }
         }
     }

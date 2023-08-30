@@ -9,6 +9,8 @@ TagManager:
   - Item
   - Cal
   - RapText
+  - ItemUI
+  - CheckPoint
   layers:
   - Default
   - TransparentFX

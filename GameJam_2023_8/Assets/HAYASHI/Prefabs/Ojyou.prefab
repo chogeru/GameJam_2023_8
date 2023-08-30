@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 7398425015621482815}
   - component: {fileID: 1040278780533875477}
   - component: {fileID: -1144744215202923505}
+  - component: {fileID: 2834056737439598787}
   m_Layer: 3
   m_Name: Ojyou
   m_TagString: Player
@@ -235,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f15e50409d39d94ab9673db5123945b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AccelerationRate: 15
+  m_AccelerationRate: 20
   m_MaxSpeed: 25
   m_JumpForce: 10
   m_RotationSpeed: 90
@@ -271,6 +272,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f2d94864ce86a847b5675e9081c5815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &2834056737439598787
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3063110765991997996}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 118f0e7636cb2124a9886e4a795cf968, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3063110766314516698
 GameObject:
   m_ObjectHideFlags: 0

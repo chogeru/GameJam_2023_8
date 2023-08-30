@@ -22,7 +22,7 @@ public class Player1 : MonoBehaviour
     [SerializeField, Header("ƒAƒCƒeƒ€Š“¾‚ÌSE")]
     private AudioClip m_ItemGetSE;
     private float mVolume = 1;
-    private float m_StartTime=2.2f;
+    private float m_StartTime = 2.2f;
     private float m_Time;
     void Update()
     {

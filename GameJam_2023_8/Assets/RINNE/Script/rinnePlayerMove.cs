@@ -14,10 +14,17 @@ public class rinnePlayerMove : MonoBehaviour
     private float m_RotationSpeed = 90f;
     [SerializeField, Header("現在の速度")]
     private float m_CurrentSpeed = 0f;
+
+    [Header("アイテムプレハブ")]
+    [SerializeField] private GameObject[] itemPrefab;
+    int SelectItem;
+    bool ItemChecker = false;
+
     // ボタンを押しているかどうかのフラグ
     private bool isAccelerating = false;
     // 地面に接地しているかのフラグ
     private bool isGrounded = true;
+
 
     
 
@@ -66,20 +73,44 @@ public class rinnePlayerMove : MonoBehaviour
             transform.Rotate(Vector3.up, m_RotationSpeed * Time.deltaTime);
         }
 
-        //正面ベクトルを取得
-        var forward = transform.forward;
-
-        //if (Input.GetKey(KeyCode.T))
-        //{
-        //    Instantiate(item);
-        //}
+        //アイテム処理
+        if(Input.GetKey(KeyCode.F))
+        {
+            if(ItemChecker)
+            {
+                //アイテムを出す
+                //アイテム使用でアイテムを出せないようにする
+                ItemChecker = false;
+                switch (SelectItem)
+                {
+                    case 0:
+                        GameObject Item = Instantiate(itemPrefab[SelectItem]);
+                        Vector3 a = new Vector3(0, 0, 6);
+                        Item.transform.position = transform.localPosition+a;
+                        break;
+                    case 1:
+                        if(m_MaxSpeed < 45f)
+                        {
+                            m_MaxSpeed += 10f;
+                        }
+                        break;
+                }  
+            }
+            else
+            {
+                //何もしない
+            }
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Item"))
+        //ランダムなアイテムを取得する
+        if (other.CompareTag("Item") && !ItemChecker)
         {
-            
+            ItemChecker = true;
+            SelectItem = Random.Range(0, 2);
         }
     }
 }

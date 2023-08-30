@@ -5,15 +5,17 @@ using UnityEngine;
 public class greenkoura : MonoBehaviour
 {
     public float move_speed;
-    public GameObject green_koura;
-
+    float direction;
+    GameObject player;
     void Start()
     {
-        
+        this.player = GameObject.Find("Player (1)");
+        direction = this.player.transform.localEulerAngles.y;
+        transform.Rotate(0,direction,0);
     }
 
     void Update()
-    {
+    { 
         transform.Translate(0, 0, move_speed);
     }
 
@@ -21,7 +23,7 @@ public class greenkoura : MonoBehaviour
     {
         if (other.CompareTag("Car"))
         {
-            Destroy(green_koura);
+            Destroy(gameObject);
         }
     }
 }

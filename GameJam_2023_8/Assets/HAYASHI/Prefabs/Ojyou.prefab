@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &551779148946774881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1839330649653144242}
+  m_Layer: 3
+  m_Name: "\u9806\u4F4D\u8868\u793A\u7528\u30AA\u30D6\u30B8\u30A7\u30AF\u30C8"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1839330649653144242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551779148946774881}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 465188401897734629}
+  m_Father: {fileID: 3063110765991997988}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3063110765221160212
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +161,7 @@ Transform:
   - {fileID: 5143332524775211826}
   - {fileID: 5743545844691685193}
   - {fileID: 8333689205704850447}
+  - {fileID: 1839330649653144242}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -243,6 +276,7 @@ MonoBehaviour:
   m_CurrentSpeed: 0
   m_ItemEffect: {fileID: 6781723888602184034, guid: 9e278b7c09cd6a442b14108c474c8448, type: 3}
   m_ItemGetSE: {fileID: 8300000, guid: 4cbd9b0fb5b3e8141a6b88eae7834a14, type: 3}
+  SelectItem: 0
 --- !u!114 &1040278780533875477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,8 +292,10 @@ MonoBehaviour:
   m_UIObjects: []
   m_UiTag: ItemUI
   isItemGet: 0
+  isCanActivateUI: 0
   m_ItemGetSE: {fileID: 0}
   m_ItemSetSE: {fileID: 0}
+  randomIndex: 0
 --- !u!114 &-1144744215202923505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,6 +510,37 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3063110766682900031}
   m_Enabled: 1
+--- !u!1 &5223228642002506555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 465188401897734629}
+  m_Layer: 3
+  m_Name: Player
+  m_TagString: Car
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &465188401897734629
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5223228642002506555}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1839330649653144242}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6936941453370132830
 GameObject:
   m_ObjectHideFlags: 0

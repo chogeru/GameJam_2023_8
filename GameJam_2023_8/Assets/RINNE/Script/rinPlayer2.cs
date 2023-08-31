@@ -30,9 +30,18 @@ public class rinPlayer2 : MonoBehaviour
     rinneItem rinneitem;
     public int SelectItem;
 
+    //パワーアップによるプレイヤーの見た目
+    public int ChengePlayer;
+    public GameObject wara;
+    public GameObject ki;
+    public GameObject renga;
+
     private void Start()
     {
         rinneitem = GetComponent<rinneItem>();
+        wara = GameObject.Find("MeganeWara");
+        ki = GameObject.Find("MeganeKi");
+        renga = GameObject.Find("MeganeRenga");
     }
     void Update()
     {
@@ -71,6 +80,7 @@ public class rinPlayer2 : MonoBehaviour
                     //スイカ
                     case 0:
                         m_MaxSpeed += 10;
+                        ChengePlayer++;
                         ItemChecker = false;
                         rinneitem.m_UIObjects[SelectItem].SetActive(false);
                         break;
@@ -94,6 +104,25 @@ public class rinPlayer2 : MonoBehaviour
             }
         }
         SelectItem = rinneitem.randomIndex;
+
+        switch(ChengePlayer)
+        {
+            case 0:
+                wara.SetActive(true);
+                ki.SetActive(false);
+                renga.SetActive(false);
+                break;
+            case 1:
+                wara.SetActive(false);
+                ki.SetActive(true);
+                renga.SetActive(false);
+                break;
+            case 2:
+                wara.SetActive(false);
+                ki.SetActive(false);
+                renga.SetActive(true);
+                break;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

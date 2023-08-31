@@ -10,13 +10,13 @@ public class ItemBoxAnimeTion : MonoBehaviour
     [Header("アイテムゲット時のアニメーション用オブジェクト")]
     private GameObject m_ItemGetAnimeObj;
     [SerializeField,Header("UIの格納用")]
-    private GameObject[] m_UIObjects; 
+    public GameObject[] m_UIObjects; 
     [SerializeField,Header("タグ")]
     private string m_UiTag = "ItemUI"; 
     [SerializeField]
     private bool isItemGet;
     // UIをアクティブにする許可フラグ
-    private bool isCanActivateUI = false;
+    public bool isCanActivateUI = false;
     // UIをアクティブにするまでの待機時間
     private float m_ActivationDelay = 3f;
     // 待機タイマー
@@ -25,6 +25,8 @@ public class ItemBoxAnimeTion : MonoBehaviour
     private GameObject m_ItemGetSE;
     [SerializeField, Header("アイテム確定時のSE")]
     private GameObject m_ItemSetSE;
+    //アイテム抽選の変数
+    public int randomIndex;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,7 +71,7 @@ public class ItemBoxAnimeTion : MonoBehaviour
             // 待機タイマーが指定の時間を超えた場合、ランダムにUIオブジェクトをアクティブにする
             if (m_ActivationTimer >= m_ActivationDelay)
             {
-                int randomIndex = Random.Range(0, m_UIObjects.Length);
+                randomIndex = Random.Range(0, m_UIObjects.Length);
                 m_UIObjects[randomIndex].SetActive(true);
                 //アイテムセット時のSEも再生
                 m_ItemSetSE.SetActive(true);

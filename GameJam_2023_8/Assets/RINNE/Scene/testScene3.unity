@@ -11690,7 +11690,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3063110765991997996, guid: 60deb2f27f5b284409898c9fa3fdbf0a, type: 3}
   m_PrefabInstance: {fileID: 1133767105}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &984164225
+--- !u!114 &984164237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11699,7 +11699,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 984164224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 247c4f807cf524b4ba3350d5e7caa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f15e50409d39d94ab9673db5123945b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_AccelerationRate: 20
@@ -11710,7 +11710,7 @@ MonoBehaviour:
   m_ItemEffect: {fileID: 0}
   m_ItemGetSE: {fileID: 0}
   SelectItem: 0
---- !u!114 &984164236
+--- !u!114 &984164246
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11719,12 +11719,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 984164224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88b93e8a21a3a61478f7a8b13bc33e33, type: 3}
+  m_Script: {fileID: 11500000, guid: a64f8afdbde784d4ca31a535bc07c087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIObjects: []
   m_UiTag: ItemUI
   isItemGet: 0
+  isCanActivateUI: 0
   m_ItemGetSE: {fileID: 0}
   m_ItemSetSE: {fileID: 0}
   randomIndex: 0

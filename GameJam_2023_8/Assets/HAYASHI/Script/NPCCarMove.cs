@@ -29,17 +29,17 @@ namespace HAYASHI.Script
         private float mVolume = 1;
 
         [SerializeField]
-        private bool isItemSuika=false;
+        private bool isItemSuika = false;
         [SerializeField]
-        private bool isItemWater=false;
+        private bool isItemWater = false;
         [SerializeField]
         private bool isItemSando = false;
 
         private float m_MinInterval = 2.0f;
         private float m_MaxInterval = 5.0f;
-        
+
         //元の速度に戻す際のトリガー
-        private bool isOriginalSpeed=false;
+        private bool isOriginalSpeed = false;
 
         private float m_OriginalSpeedTime = 3;
         private float m_CoolTime;
@@ -58,9 +58,9 @@ namespace HAYASHI.Script
         private float m_PlusCarSpeedKI;
 
         [SerializeField]
-        private Transform m_OriginalObject;  
-        private float m_Scale = 2f;  
-        private float m_ScaleUpTime = 10f; 
+        private Transform m_OriginalObject;
+        private float m_Scale = 2f;
+        private float m_ScaleUpTime = 10f;
 
         private Vector3 m_OriginalScale;
         [SerializeField]
@@ -86,13 +86,13 @@ namespace HAYASHI.Script
                     isStart = true;
                 }
             }
-            if(isItemSando)
+            if (isItemSando)
             {
                 // ランダムな時間設定
                 float randomInterval = Random.Range(m_MinInterval, m_MaxInterval);
                 //上記の処理で決まったランダムな時間経過で関数を呼び出す
                 Invoke("サンドイッチ", randomInterval);
-                isItemSando=false;
+                isItemSando = false;
             }
             if (isItemSuika)
             {
@@ -106,27 +106,27 @@ namespace HAYASHI.Script
                 // ランダムな時間設定
                 float randomInterval = Random.Range(m_MinInterval, m_MaxInterval);
                 Invoke("デトックスウォーター", randomInterval);
-                isItemWater=false;
+                isItemWater = false;
             }
             //時間経過で元のスピードに戻す処理
-            if(isOriginalSpeed)
+            if (isOriginalSpeed)
             {
                 m_CoolTime += Time.deltaTime;
-                if(m_CoolTime>m_OriginalSpeedTime)
+                if (m_CoolTime > m_OriginalSpeedTime)
                 {
                     m_CarMoveSpeed = 25;
                     m_CoolTime = 0;
                     isOriginalSpeed = false;
                 }
             }
-            if(m_CarGrade==0)
+            if (m_CarGrade == 0)
             {
                 m_GreadWara.SetActive(true);
                 m_GreadKI.SetActive(false);
                 m_GreadRenga.SetActive(false);
                 m_PlusCarSpeedKI = 0;
             }
-           
+
 
             if (isScaling)
             {
@@ -199,7 +199,7 @@ namespace HAYASHI.Script
                         isItemSuika = true;
                         break;
                     case 1:
-                        isItemWater= true;
+                        isItemWater = true;
                         break;
                     case 2:
                         isItemSando = true;
@@ -223,7 +223,7 @@ namespace HAYASHI.Script
                 m_GreadWara.SetActive(false);
                 m_GreadKI.SetActive(true);
                 m_GreadRenga.SetActive(false);
-                m_PlusCarSpeedKI = 2;
+                m_PlusCarSpeedKI = 2.5f;
                 m_CarMoveSpeed += m_PlusCarSpeedKI;
             }
             if (m_CarGrade == 2)
@@ -237,6 +237,11 @@ namespace HAYASHI.Script
         {
             m_OriginalObject.localScale = m_OriginalScale * m_Scale;
             isScaling = true;
+            for (int i = 0; i < 3; i++) // 3回繰り返す
+            {
+                m_CarMoveSpeed += 4;
+                isOriginalSpeed = true;
+            }
         }
     }
 }

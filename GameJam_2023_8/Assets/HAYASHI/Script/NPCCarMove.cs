@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 namespace HAYASHI.Script
 {
-  
+
     public class NPCCarMove : MonoBehaviour
     {
         // 目的地のオブジェクトを配列で保持
@@ -14,23 +14,68 @@ namespace HAYASHI.Script
         private float m_CarMoveSpeed = 25f;
         // 現在の目的地のインデックス
         private int m_CurrentDestinationIndex = 0;
+
         [SerializeField]
-        private float m_StartTimer= 7;
+        private float m_StartTimer = 7;
         [SerializeField]
         private float m_Timer;
-        private bool isStart=false;
+        private bool isStart = false;
+
         [SerializeField, Header("アイテム所得時のエフェクト")]
         private GameObject m_ItemEffect;
+
         [SerializeField, Header("アイテム所得時のSE")]
         private AudioClip m_ItemGetSE;
         private float mVolume = 1;
+
+        [SerializeField]
+        private bool isItemSuika=false;
+        [SerializeField]
+        private bool isItemWater=false;
+        [SerializeField]
+        private bool isItemSando = false;
+
+        private float m_MinInterval = 2.0f;
+        private float m_MaxInterval = 5.0f;
+        
+        //元の速度に戻す際のトリガー
+        private bool isOriginalSpeed=false;
+
+        private float m_OriginalSpeedTime = 3;
+        private float m_CoolTime;
+
+        //車の現在のグレード
+        private int m_CarGrade = 0;
+
+        //車のオブジェクト
+        [SerializeField]
+        private GameObject m_GreadWara;
+        [SerializeField]
+        private GameObject m_GreadKI;
+        [SerializeField]
+        private GameObject m_GreadRenga;
+
+        private float m_PlusCarSpeedKI;
+
+        [SerializeField]
+        private Transform m_OriginalObject;  
+        private float m_Scale = 2f;  
+        private float m_ScaleUpTime = 10f; 
+
+        private Vector3 m_OriginalScale;
+        [SerializeField]
+        private bool isScaling = false;
+        private float m_ScaleCoolTime;
         private void Start()
         {
             m_CarMoveSpeed = 0;
             MoveToDestination(m_CurrentDestinationIndex);
+            m_OriginalScale = m_OriginalObject.localScale;
         }
         private void Update()
         {
+            //変数の値の範囲を指定
+            m_CarGrade = Mathf.Clamp(m_CarGrade, 0, 3);
             if (isStart == false)
             {
                 m_Timer += Time.deltaTime;
@@ -39,6 +84,58 @@ namespace HAYASHI.Script
                     m_CarMoveSpeed = 25;
                     m_Timer = 0;
                     isStart = true;
+                }
+            }
+            if(isItemSando)
+            {
+                // ランダムな時間設定
+                float randomInterval = Random.Range(m_MinInterval, m_MaxInterval);
+                //上記の処理で決まったランダムな時間経過で関数を呼び出す
+                Invoke("サンドイッチ", randomInterval);
+                isItemSando=false;
+            }
+            if (isItemSuika)
+            {
+                // ランダムな時間設定
+                float randomInterval = Random.Range(m_MinInterval, m_MaxInterval);
+                Invoke("四角スイカ", randomInterval);
+                isItemSuika = false;
+            }
+            if (isItemWater)
+            {
+                // ランダムな時間設定
+                float randomInterval = Random.Range(m_MinInterval, m_MaxInterval);
+                Invoke("デトックスウォーター", randomInterval);
+                isItemWater=false;
+            }
+            //時間経過で元のスピードに戻す処理
+            if(isOriginalSpeed)
+            {
+                m_CoolTime += Time.deltaTime;
+                if(m_CoolTime>m_OriginalSpeedTime)
+                {
+                    m_CarMoveSpeed = 25;
+                    m_CoolTime = 0;
+                    isOriginalSpeed = false;
+                }
+            }
+            if(m_CarGrade==0)
+            {
+                m_GreadWara.SetActive(true);
+                m_GreadKI.SetActive(false);
+                m_GreadRenga.SetActive(false);
+                m_PlusCarSpeedKI = 0;
+            }
+           
+
+            if (isScaling)
+            {
+                m_ScaleCoolTime += Time.deltaTime;
+                if (m_ScaleCoolTime >= m_ScaleUpTime)
+                {
+                    m_OriginalObject.localScale = m_OriginalScale;
+                    isScaling = false;
+                    m_ScaleCoolTime = 0f;
                 }
             }
         }
@@ -61,7 +158,6 @@ namespace HAYASHI.Script
                 //目的地の方向を計算
                 Vector3 lookDir = destination - transform.position;
                 //車両が垂直方向に回転しないようにする
-                //これがないと車両の挙動がバグります
                 lookDir.y = 0f;
                 if (lookDir != Vector3.zero)
                 {
@@ -89,14 +185,58 @@ namespace HAYASHI.Script
         {
             if (other.CompareTag("Item"))
             {
+                // ランダムに0から2の整数を生成
+                int randomIndex = Random.Range(0, 3);
                 //サウンドの再生
                 AudioSource.PlayClipAtPoint(m_ItemGetSE, transform.position, mVolume);
                 //パーティクルの複製
                 Instantiate(m_ItemEffect.gameObject.transform);
-                Destroy(other.gameObject);
-                m_CarMoveSpeed +=10;
+                // ランダムなアイテム用関数を呼び出す
+                switch (randomIndex)
+                {
+                    case 0:
+                        //時間経過で関数を呼び出す用のトリガー
+                        isItemSuika = true;
+                        break;
+                    case 1:
+                        isItemWater= true;
+                        break;
+                    case 2:
+                        isItemSando = true;
+                        break;
+                    default:
+                        break;
+                }
             }
         }
-    }
 
+        private void デトックスウォーター()
+        {
+            m_CarMoveSpeed += 15;
+            isOriginalSpeed = true;
+        }
+        private void 四角スイカ()
+        {
+            m_CarGrade += 1;
+            if (m_CarGrade == 1)
+            {
+                m_GreadWara.SetActive(false);
+                m_GreadKI.SetActive(true);
+                m_GreadRenga.SetActive(false);
+                m_PlusCarSpeedKI = 2;
+                m_CarMoveSpeed += m_PlusCarSpeedKI;
+            }
+            if (m_CarGrade == 2)
+            {
+                m_GreadWara.SetActive(false);
+                m_GreadKI.SetActive(false);
+                m_GreadRenga.SetActive(true);
+            }
+        }
+        private void サンドイッチ()
+        {
+            m_OriginalObject.localScale = m_OriginalScale * m_Scale;
+            isScaling = true;
+        }
+    }
 }

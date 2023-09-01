@@ -24,6 +24,12 @@ public class rinPlayer2 : MonoBehaviour
     private float mVolume = 1;
     private float m_StartTime = 4.0f;
     private float m_Time;
+    //ブーストフラグ
+    private bool isBoost = false;
+    //ブースト時間
+    private float m_BoostTime = 0;
+    //元最大スピード
+    private float m_motoMaxSpeed;
 
     //アイテム取得フラグ
     public bool ItemChecker = false;
@@ -44,6 +50,7 @@ public class rinPlayer2 : MonoBehaviour
         wara = GameObject.Find("MeganeWara");
         ki = GameObject.Find("MeganeKi");
         renga = GameObject.Find("MeganeRenga");
+        m_motoMaxSpeed = m_MaxSpeed;
     }
     void Update()
     {
@@ -57,11 +64,31 @@ public class rinPlayer2 : MonoBehaviour
                 GetComponent<Rigidbody>().AddForce(Vector3.up * m_JumpForce, ForceMode.Impulse);
             }
 
+            if (isBoost)
+            {
+                m_BoostTime += Time.deltaTime;
+                if (m_BoostTime < 1.5f)
+                {
+                    m_MaxSpeed += 10f;
 
-            float verticalInput = Input.GetAxis("Vertical");
-            movement = new Vector3(0, 0f, 1f) * m_CurrentSpeed * Time.deltaTime;
-            transform.Translate(movement);
+                    float verticalInput = Input.GetAxis("Vertical");
+                    Vector3 movement = new Vector3(0, 0f, 1) * m_CurrentSpeed * 2f * Time.deltaTime;
+                    transform.Translate(movement);
 
+                }
+                else
+                {
+                    m_BoostTime = 0;
+                    isBoost = false;
+                }
+            }
+            else
+            {
+                m_MaxSpeed = m_motoMaxSpeed;
+                float verticalInput = Input.GetAxis("Vertical");
+                Vector3 movement = new Vector3(0, 0f, 1) * m_CurrentSpeed * Time.deltaTime;
+                transform.Translate(movement);
+            }
 
             if (Input.GetKey(KeyCode.A))
             {
@@ -73,7 +100,7 @@ public class rinPlayer2 : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (ItemChecker && !rinneitem.isCanActivateUI)
             {
@@ -96,6 +123,7 @@ public class rinPlayer2 : MonoBehaviour
                         break;
                     //デトックスウォーター
                     case 2:
+                        isBoost = true;
                         ItemChecker = false;
                         rinneitem.getItem = false;
                         rinneitem.m_UIObjects[SelectItem].SetActive(false);

@@ -11,8 +11,11 @@ public class SelectCharacter : MonoBehaviour
     private GameObject m_SelectCharacterUI;
     [SerializeField,Header("キャラクター確認用UI")]
     private GameObject m_CheckUI;
+    [SerializeField, Header("スタートボタン押したときのSE")]
+    private GameObject m_StartSE;
     private void Start()
     {
+        m_StartSE.SetActive(false);
         m_TitleUI.SetActive(true);
         m_CheckUI.SetActive(false);
         m_SelectCharacterUI.SetActive(false);
@@ -22,6 +25,7 @@ public class SelectCharacter : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Z))
         {
+            m_StartSE.SetActive(true);
             m_TitleUI.SetActive(false);
             m_SelectCharacterUI.SetActive(true);
         }

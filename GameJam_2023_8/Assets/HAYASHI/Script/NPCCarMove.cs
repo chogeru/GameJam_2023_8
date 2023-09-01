@@ -219,7 +219,7 @@ namespace HAYASHI.Script
 
         private void デトックスウォーター()
         {
-            m_CarMoveSpeed += 7;
+            m_CarMoveSpeed += 10;
             isOriginalSpeed = true;
             AudioSource.PlayClipAtPoint(m_ItemUseSE,transform.position, mVolume);
         }
@@ -232,7 +232,7 @@ namespace HAYASHI.Script
                 m_GreadWara.SetActive(false);
                 m_GreadKI.SetActive(true);
                 m_GreadRenga.SetActive(false);
-                m_PlusCarSpeedKI = 3f;
+                m_PlusCarSpeedKI = 8f;
                 m_CarMoveSpeed += m_PlusCarSpeedKI;
                 Instantiate(m_ScaleChangeEffect, spawnPosition, Quaternion.identity);
             }
@@ -253,7 +253,7 @@ namespace HAYASHI.Script
             isScaling = true;
             for (int i = 0; i < 3; i++) // 3回繰り返す
             {
-                m_CarMoveSpeed += 3;
+                m_CarMoveSpeed += 4;
                 isOriginalSpeed = true;
             }
             AudioSource.PlayClipAtPoint(m_ItemUseSE,transform.position, mVolume);

@@ -9,7 +9,11 @@ public class StartCountDown : MonoBehaviour
     private Text m_CountdownText;
     // カウントダウンの時間
     private float m_CountDownDuration = 3f;
-  
+
+    [SerializeField]
+    private GameObject m_CountDownSE;
+    [SerializeField]
+    private GameObject m_StartSE;
     private void Start()
     {
         // カウントダウンを開始する
@@ -31,17 +35,17 @@ public class StartCountDown : MonoBehaviour
         {
             // テキストにカウントダウンの現在の値を表示
             m_CountdownText.text = countdownValue.ToString();
-
+            m_CountDownSE.SetActive(true);
             // 1秒ストップ
             yield return new WaitForSeconds(1f);
-
+            m_CountDownSE.SetActive(false);
             // カウントダウンの値を1減らす
             countdownValue--;
         }
 
         // カウントダウン終了後の処理
         m_CountdownText.text = "GO!";
-
+        m_StartSE.SetActive(true);
         // １秒ストップ
         yield return new WaitForSeconds(1f);
         //テキストを非表示にする

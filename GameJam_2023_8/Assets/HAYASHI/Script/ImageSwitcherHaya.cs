@@ -52,6 +52,25 @@ public class ImageSwitcherHaya : MonoBehaviour
                 case "スズカ":
                     resultObj.GetComponent<Image>().sprite = suzuka;
                     break;
+                case "Playerジェシカ":
+                    resultObj.GetComponent <Image>().sprite = jesika;
+                    break;
+                case "Playerサラ":
+                    resultObj.GetComponent<Image>().sprite = sara;
+                    break;
+                case "Playerコベル":
+                    resultObj.GetComponent<Image>().sprite = koberu;
+                    break;
+                case "Playerアナスタシア":
+                    resultObj.GetComponent<Image>().sprite = anasutasia;
+                    break;
+                case "Playerシェリー":
+                    resultObj.GetComponent<Image>().sprite = shery;
+                    break;
+                case "Playerスズカ":
+                    resultObj.GetComponent<Image>().sprite = suzuka;
+                    break;
+
             }
         }
     }

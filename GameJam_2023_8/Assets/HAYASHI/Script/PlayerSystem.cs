@@ -49,6 +49,14 @@ public class PlayerSystem : MonoBehaviour
     Vector3 movement;
     public int count;
 
+    [SerializeField, Header("アイテム使用時のサウンド")]
+    private GameObject m_ItemSE;
+    [SerializeField, Header("スピードアップ用エフェクト")]
+    private GameObject m_SpeedUpEffect;
+    private bool isEffectActive=false;
+    private float m_EffectFalseTime = 1.5f;
+    private float m_EffectCoolTime;
+
     private void Start()
     {
         rinneitem = GetComponent<rinneItem>();
@@ -56,6 +64,7 @@ public class PlayerSystem : MonoBehaviour
         //ki = GameObject.Find("MeganeKi");
         //renga = GameObject.Find("MeganeRenga");
         m_motoMaxSpeed = m_MaxSpeed;
+        m_SpeedUpEffect.SetActive(false);
     }
     void Update()
     {
@@ -108,15 +117,18 @@ public class PlayerSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
+            
             if (ItemChecker && !rinneitem.isCanActivateUI)
             {
                 switch(SelectItem)
                 {
                     //スイカ
                     case 0:
-                        if(m_MaxSpeed < 45)
+                        if(m_MaxSpeed < 35)
                         {
-                            m_MaxSpeed += 10;
+                            m_ItemSE.SetActive(true);
+                            m_SpeedUpEffect.SetActive(true);isEffectActive= true;
+                            m_MaxSpeed += 5;
                             m_motoMaxSpeed = m_MaxSpeed;
                         }
                         ChengePlayer++;
@@ -127,6 +139,8 @@ public class PlayerSystem : MonoBehaviour
                     //サンドイッチ
                     case 1:
                         m_CntSand++;
+                        m_ItemSE.SetActive(true);
+                        m_SpeedUpEffect.SetActive(true); isEffectActive = true;
                         if (m_CntSand >= 3)
                         {
                             ItemChecker = false;
@@ -137,6 +151,8 @@ public class PlayerSystem : MonoBehaviour
                         break;
                     //デトックスウォーター
                     case 2:
+                        m_ItemSE.SetActive(true);
+                        m_SpeedUpEffect.SetActive(true); isEffectActive = true;
                         isBoost = true;
                         ItemChecker = false;
                         rinneitem.getItem = false;
@@ -168,12 +184,24 @@ public class PlayerSystem : MonoBehaviour
                 renga.SetActive(true);
                 break;
         }
+        if(isEffectActive)
+        {
+            m_EffectCoolTime += Time.deltaTime;
+            if(m_EffectCoolTime >m_EffectFalseTime)
+            {
+                m_SpeedUpEffect.SetActive(false);
+                m_ItemSE.SetActive(false);
+                m_EffectCoolTime = 0;
+                isEffectActive = false;
+            }
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Item") && !ItemChecker)
         {
             ItemChecker = true;
+            m_ItemSE.SetActive(false);
             //サウンドの再生
             AudioSource.PlayClipAtPoint(m_ItemGetSE, transform.position, mVolume);
             //パーティクルの複製

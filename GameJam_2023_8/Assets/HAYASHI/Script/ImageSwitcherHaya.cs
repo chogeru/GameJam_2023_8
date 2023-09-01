@@ -1,22 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ImageSwitcherHaya : MonoBehaviour
 {
+    public ParticleSystem ps;
     public Sprite jesika;
     public Sprite sara;
     public Sprite koberu;
     public Sprite anasutasia;
     public Sprite shery;
     public Sprite suzuka;
+    public string m_SceneName = "";
 
     private Image image;
-     
+
     // Start is called before the first frame update
     void Start()
     {
+       // ps?.Play();
+
         Debug.Log("アプリケーションが開始されました。");
         //オブジェクトを名前で探す
         var rankChecerObj = GameObject.Find("RankChecker");
@@ -74,6 +79,5 @@ public class ImageSwitcherHaya : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 }

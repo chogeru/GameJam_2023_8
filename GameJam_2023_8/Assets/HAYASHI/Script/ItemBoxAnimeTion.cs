@@ -55,6 +55,7 @@ public class ItemBoxAnimeTion : MonoBehaviour
             isCanActivateUI = true; 
             //アイテムゲット時のSEを再生
             m_ItemGetSE.SetActive(true);
+            m_ItemSetSE.SetActive(false);
             // 待機タイマーを初期化
             m_ActivationTimer = 0f;
         }

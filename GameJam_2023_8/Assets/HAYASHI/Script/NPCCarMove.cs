@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
 namespace HAYASHI.Script
@@ -27,6 +28,8 @@ namespace HAYASHI.Script
         [SerializeField, Header("アイテム所得時のSE")]
         private AudioClip m_ItemGetSE;
         private float mVolume = 1;
+        [SerializeField, Header("アイテム使用時のSE")]
+        private AudioClip m_ItemUseSE;
 
         [SerializeField]
         private bool isItemSuika = false;
@@ -66,6 +69,9 @@ namespace HAYASHI.Script
         [SerializeField]
         private bool isScaling = false;
         private float m_ScaleCoolTime;
+
+        [SerializeField,Header("巨大化とパワーアップ時のエフェクト")]
+        private GameObject m_ScaleChangeEffect;
         private void Start()
         {
             m_CarMoveSpeed = 0;
@@ -74,6 +80,7 @@ namespace HAYASHI.Script
         }
         private void Update()
         {
+            
             //変数の値の範囲を指定
             m_CarGrade = Mathf.Clamp(m_CarGrade, 0, 3);
             if (isStart == false)
@@ -188,7 +195,7 @@ namespace HAYASHI.Script
                 // ランダムに0から2の整数を生成
                 int randomIndex = Random.Range(0, 3);
                 //サウンドの再生
-                AudioSource.PlayClipAtPoint(m_ItemGetSE, transform.position, mVolume);
+                AudioSource.PlayClipAtPoint(m_ItemGetSE,new Vector3(20,20,0), mVolume);
                 //パーティクルの複製
                 Instantiate(m_ItemEffect.gameObject.transform);
                 // ランダムなアイテム用関数を呼び出す
@@ -212,36 +219,45 @@ namespace HAYASHI.Script
 
         private void デトックスウォーター()
         {
-            m_CarMoveSpeed += 15;
+            m_CarMoveSpeed += 7;
             isOriginalSpeed = true;
+            AudioSource.PlayClipAtPoint(m_ItemUseSE, new Vector3(20, 20, 0), mVolume);
         }
         private void 四角スイカ()
         {
             m_CarGrade += 1;
+            Vector3 spawnPosition = transform.position - new Vector3(3, 0, 0);
             if (m_CarGrade == 1)
             {
                 m_GreadWara.SetActive(false);
                 m_GreadKI.SetActive(true);
                 m_GreadRenga.SetActive(false);
-                m_PlusCarSpeedKI = 2.5f;
+                m_PlusCarSpeedKI = 3f;
                 m_CarMoveSpeed += m_PlusCarSpeedKI;
+                Instantiate(m_ScaleChangeEffect, spawnPosition, Quaternion.identity);
             }
             if (m_CarGrade == 2)
             {
                 m_GreadWara.SetActive(false);
                 m_GreadKI.SetActive(false);
                 m_GreadRenga.SetActive(true);
+                Instantiate(m_ScaleChangeEffect, spawnPosition, Quaternion.identity);
             }
+            AudioSource.PlayClipAtPoint(m_ItemUseSE, new Vector3(20, 20, 0), mVolume);
         }
         private void サンドイッチ()
         {
             m_OriginalObject.localScale = m_OriginalScale * m_Scale;
+            Vector3 spawnPosition = transform.position - new Vector3(3, 0, 0);
+            Instantiate(m_ScaleChangeEffect,spawnPosition, Quaternion.identity);
             isScaling = true;
             for (int i = 0; i < 3; i++) // 3回繰り返す
             {
-                m_CarMoveSpeed += 4;
+                m_CarMoveSpeed += 3;
                 isOriginalSpeed = true;
             }
+            AudioSource.PlayClipAtPoint(m_ItemUseSE,new Vector3(20, 20, 0), mVolume);
         }
+
     }
 }

@@ -14,6 +14,7 @@ public class LapSystem : MonoBehaviour
     //éOèTâÒÇËêÿÇ¡ÇΩå„ÇÃSE
     private GameObject m_ClereSE;
     private GameObject m_ClereEffect;
+
     private void Start()
     {
         
@@ -41,6 +42,7 @@ public class LapSystem : MonoBehaviour
             {
                 m_ClereSE.SetActive(true);
                 m_ClereEffect.SetActive(true);
+
                 StartCoroutine(LoadSceneAfterDelay(3f, m_SceneName));
             }
         }

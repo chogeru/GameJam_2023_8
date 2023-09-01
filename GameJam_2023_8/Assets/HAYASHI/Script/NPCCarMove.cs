@@ -195,7 +195,7 @@ namespace HAYASHI.Script
                 // ランダムに0から2の整数を生成
                 int randomIndex = Random.Range(0, 3);
                 //サウンドの再生
-                AudioSource.PlayClipAtPoint(m_ItemGetSE,new Vector3(20,20,0), mVolume);
+                AudioSource.PlayClipAtPoint(m_ItemGetSE,transform.position, mVolume);
                 //パーティクルの複製
                 Instantiate(m_ItemEffect.gameObject.transform);
                 // ランダムなアイテム用関数を呼び出す
@@ -221,7 +221,7 @@ namespace HAYASHI.Script
         {
             m_CarMoveSpeed += 7;
             isOriginalSpeed = true;
-            AudioSource.PlayClipAtPoint(m_ItemUseSE, new Vector3(20, 20, 0), mVolume);
+            AudioSource.PlayClipAtPoint(m_ItemUseSE,transform.position, mVolume);
         }
         private void 四角スイカ()
         {
@@ -243,7 +243,7 @@ namespace HAYASHI.Script
                 m_GreadRenga.SetActive(true);
                 Instantiate(m_ScaleChangeEffect, spawnPosition, Quaternion.identity);
             }
-            AudioSource.PlayClipAtPoint(m_ItemUseSE, new Vector3(20, 20, 0), mVolume);
+            AudioSource.PlayClipAtPoint(m_ItemUseSE,transform.position, mVolume);
         }
         private void サンドイッチ()
         {
@@ -256,7 +256,7 @@ namespace HAYASHI.Script
                 m_CarMoveSpeed += 3;
                 isOriginalSpeed = true;
             }
-            AudioSource.PlayClipAtPoint(m_ItemUseSE,new Vector3(20, 20, 0), mVolume);
+            AudioSource.PlayClipAtPoint(m_ItemUseSE,transform.position, mVolume);
         }
 
     }

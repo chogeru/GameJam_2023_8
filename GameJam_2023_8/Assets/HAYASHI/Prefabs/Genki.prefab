@@ -342,6 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SceneName: ResultSceneHaya
+  m_ResultCanvas: {fileID: 5083499604496157455, guid: a30059bbe3a960242b2d3558ad880c33, type: 3}
 --- !u!135 &3119052068360996012
 SphereCollider:
   m_ObjectHideFlags: 0

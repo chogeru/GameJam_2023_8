@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class RankCheckerHaya : MonoBehaviour
 {
+    private static RankCheckerHaya instance;
+
     [SerializeField]
     private GameObject[] CarList;
     // Start is called before the first frame update
@@ -22,10 +24,15 @@ public class RankCheckerHaya : MonoBehaviour
     private float m_CheckTime=3;
     [SerializeField]
     private float m_Time;
+    private bool isCheck=true;
     void Start()
     {
-        
-        
+        isCheck = true;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -34,11 +41,13 @@ public class RankCheckerHaya : MonoBehaviour
         m_Time += Time.deltaTime;
         if (m_Time > m_CheckTime)
         {
-            CarList = GameObject.FindGameObjectsWithTag("Car");
-            CarRankCalc = new float[CarList.Length];
+            if (isCheck)
+            {
+                CarTagGet();
+            }
         }
-        //チェックポイント確認
-        for (int i = 0; i < CheckPoint.Length; i++)
+            //チェックポイント確認
+            for (int i = 0; i < CheckPoint.Length; i++)
         {
             if (CheckPoint[i].activeSelf)
             {
@@ -95,5 +104,11 @@ public class RankCheckerHaya : MonoBehaviour
         {
             CheckPoint[i].SetActive(true);
         }
+    }
+    private void CarTagGet()
+    {
+        CarList = GameObject.FindGameObjectsWithTag("Car");
+        CarRankCalc = new float[CarList.Length];
+        isCheck = false;
     }
 }

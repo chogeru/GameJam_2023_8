@@ -72,10 +72,10 @@ public class rinPlayer2 : MonoBehaviour
                 m_BoostTime += Time.deltaTime;
                 if (m_BoostTime < 1.5f)
                 {
-                    m_MaxSpeed += 10f;
+                    m_MaxSpeed += 4f;
 
                     float verticalInput = Input.GetAxis("Vertical");
-                    Vector3 movement = new Vector3(0, 0f, 1) * m_CurrentSpeed * 2f * Time.deltaTime;
+                    Vector3 movement = new Vector3(0, 0f, 1) * m_CurrentSpeed * 1.3f * Time.deltaTime;
                     transform.Translate(movement);
 
                 }

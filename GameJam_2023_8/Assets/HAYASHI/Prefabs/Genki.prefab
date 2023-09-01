@@ -228,10 +228,10 @@ GameObject:
   - component: {fileID: 3063110765991997992}
   - component: {fileID: 3063110765991997994}
   - component: {fileID: 3119052068360996012}
-  - component: {fileID: 7705459503738407449}
   - component: {fileID: 6703024496185102440}
   - component: {fileID: -201187971122853019}
-  - component: {fileID: 2155972202653332013}
+  - component: {fileID: 6714927456381509734}
+  - component: {fileID: 1084584092801681458}
   m_Layer: 3
   m_Name: Genki
   m_TagString: Player
@@ -357,25 +357,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: 2, z: 0}
---- !u!114 &7705459503738407449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3063110765991997996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a64f8afdbde784d4ca31a535bc07c087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UIObjects: []
-  m_UiTag: ItemUI
-  isItemGet: 0
-  isCanActivateUI: 0
-  m_ItemGetSE: {fileID: 0}
-  m_ItemSetSE: {fileID: 0}
-  randomIndex: 0
 --- !u!114 &6703024496185102440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,7 +389,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2155972202653332013
+--- !u!114 &6714927456381509734
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -417,7 +398,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3063110765991997996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f15e50409d39d94ab9673db5123945b, type: 3}
+  m_Script: {fileID: 11500000, guid: 247c4f807cf524b4ba3350d5e7caa586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_AccelerationRate: 20
@@ -426,8 +407,34 @@ MonoBehaviour:
   m_RotationSpeed: 90
   m_CurrentSpeed: 0
   m_ItemEffect: {fileID: 6781723888602184034, guid: 9e278b7c09cd6a442b14108c474c8448, type: 3}
-  m_ItemGetSE: {fileID: 8300000, guid: 4cbd9b0fb5b3e8141a6b88eae7834a14, type: 3}
+  m_ItemGetSE: {fileID: 8300000, guid: c32f6208b4fb11c458c1cacb5d3893c2, type: 3}
+  ItemChecker: 0
   SelectItem: 0
+  ChengePlayer: 0
+  wara: {fileID: 9190222701935920065}
+  ki: {fileID: 2955378933893183552}
+  renga: {fileID: 6979434043496402994}
+  count: 0
+--- !u!114 &1084584092801681458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3063110765991997996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88b93e8a21a3a61478f7a8b13bc33e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIObjects: []
+  m_UiTag: ItemUI
+  isItemGet: 0
+  isCanActivateUI: 0
+  m_ItemGetSE: {fileID: 0}
+  m_ItemSetSE: {fileID: 0}
+  randomIndex: 0
+  getItem: 0
 --- !u!1 &3063110766314516698
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,6 +722,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecdcb2eac4e3f6140aed4b38bdbaffc9, type: 3}
+--- !u!1 &9190222701935920065 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6127254875224908474, guid: ecdcb2eac4e3f6140aed4b38bdbaffc9, type: 3}
+  m_PrefabInstance: {fileID: 3063110766846583163}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9190222701935920078 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6127254875224908469, guid: ecdcb2eac4e3f6140aed4b38bdbaffc9, type: 3}
@@ -789,6 +801,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecdcb2eac4e3f6140aed4b38bdbaffc9, type: 3}
+--- !u!1 &6979434043496402994 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6127254875224908474, guid: ecdcb2eac4e3f6140aed4b38bdbaffc9, type: 3}
+  m_PrefabInstance: {fileID: 3878601555985871496}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6979434043496403005 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6127254875224908469, guid: ecdcb2eac4e3f6140aed4b38bdbaffc9, type: 3}
@@ -941,6 +958,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecdcb2eac4e3f6140aed4b38bdbaffc9, type: 3}
+--- !u!1 &2955378933893183552 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6127254875224908474, guid: ecdcb2eac4e3f6140aed4b38bdbaffc9, type: 3}
+  m_PrefabInstance: {fileID: 8938515662547950330}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2955378933893183567 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6127254875224908469, guid: ecdcb2eac4e3f6140aed4b38bdbaffc9, type: 3}

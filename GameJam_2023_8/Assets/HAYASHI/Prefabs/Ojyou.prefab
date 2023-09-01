@@ -130,10 +130,10 @@ GameObject:
   - component: {fileID: 3063110765991997992}
   - component: {fileID: 3063110765991997994}
   - component: {fileID: 3119052068360996012}
-  - component: {fileID: 1040278780533875477}
   - component: {fileID: -1144744215202923505}
   - component: {fileID: 2834056737439598787}
   - component: {fileID: -741573010974679941}
+  - component: {fileID: -6267873484368480944}
   m_Layer: 3
   m_Name: Ojyou
   m_TagString: Player
@@ -260,25 +260,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: 2, z: 0}
---- !u!114 &1040278780533875477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3063110765991997996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a64f8afdbde784d4ca31a535bc07c087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UIObjects: []
-  m_UiTag: ItemUI
-  isItemGet: 0
-  isCanActivateUI: 0
-  m_ItemGetSE: {fileID: 0}
-  m_ItemSetSE: {fileID: 0}
-  randomIndex: 0
 --- !u!114 &-1144744215202923505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,6 +318,26 @@ MonoBehaviour:
   ki: {fileID: 5743545844691685190}
   renga: {fileID: 8333689205704850432}
   count: 0
+--- !u!114 &-6267873484368480944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3063110765991997996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88b93e8a21a3a61478f7a8b13bc33e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIObjects: []
+  m_UiTag: ItemUI
+  isItemGet: 0
+  isCanActivateUI: 0
+  m_ItemGetSE: {fileID: 0}
+  m_ItemSetSE: {fileID: 0}
+  randomIndex: 0
+  getItem: 0
 --- !u!1 &3063110766314516698
 GameObject:
   m_ObjectHideFlags: 0

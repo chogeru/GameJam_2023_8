@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using UnityEngine.Windows;
 
 public class SelectCharacter : MonoBehaviour
 {
@@ -17,11 +18,15 @@ public class SelectCharacter : MonoBehaviour
         m_SelectCharacterUI.SetActive(false);
         
     }
-    public void OnClickToCharacterSelect()
+    private void Update()
     {
-        m_TitleUI.SetActive(false);
-        m_SelectCharacterUI.SetActive(true);
+        if (Input.GetKeyUp(KeyCode.Z))
+        {
+            m_TitleUI.SetActive(false);
+            m_SelectCharacterUI.SetActive(true);
+        }
     }
+   
     public void OnClickToCheckUI()
     {
         m_CheckUI.SetActive(true);

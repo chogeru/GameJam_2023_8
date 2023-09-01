@@ -111,7 +111,11 @@ public class rinPlayer2 : MonoBehaviour
                 {
                     //ÉXÉCÉJ
                     case 0:
-                        m_MaxSpeed += 10;
+                        if(m_MaxSpeed < 45)
+                        {
+                            m_MaxSpeed += 10;
+                            m_motoMaxSpeed = m_MaxSpeed;
+                        }
                         ChengePlayer++;
                         ItemChecker = false;
                         rinneitem.getItem = false;

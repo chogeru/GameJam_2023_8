@@ -6,11 +6,14 @@ public class ItemBoxDirector : MonoBehaviour
 {
     [SerializeField]
     GameObject itembox;
+    public int count = 0;
 
     private void Update()
     {
         if(itembox.activeSelf == false)
         {
+            count++;
+            if(count == 1)
             StartCoroutine("Resporn");
         }
     }
@@ -19,5 +22,6 @@ public class ItemBoxDirector : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
         itembox.SetActive(true);
+        count = 0;
     }
 }

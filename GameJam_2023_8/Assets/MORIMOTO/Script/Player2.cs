@@ -59,7 +59,6 @@ public class Player2 : MonoBehaviour
 
             if (isBoost)
             {
-                m_CntSand++;
                 m_BoostTime += Time.deltaTime;
                 if (m_BoostTime < 1.5f)
                 {
@@ -82,6 +81,10 @@ public class Player2 : MonoBehaviour
                 float verticalInput = Input.GetAxis("Vertical");
                 Vector3 movement = new Vector3(0, 0f, 1) * m_CurrentSpeed * Time.deltaTime;
                 transform.Translate(movement);
+                if (m_CntSand >= 3)
+                {
+                    m_CntSand = 0;
+                }
             }
 
 
@@ -113,12 +116,13 @@ public class Player2 : MonoBehaviour
                         break;
                     //サンドイッチ
                     case 1:
-                        isBoost = true;
-                        if (m_CntSand == 3)
+                        m_CntSand++;
+                        if (m_CntSand >= 3)
                         {
                             ItemChecker = false;
                             itemboxAnimetion.m_UIObjects[SelectItem].SetActive(false);
                         }
+                        isBoost = true;
                         break;
                     //デトックスウォーター
                     case 2:

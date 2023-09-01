@@ -30,6 +30,8 @@ public class rinPlayer2 : MonoBehaviour
     private float m_BoostTime = 0;
     //元最大スピード
     private float m_motoMaxSpeed;
+    //サンドイッチカウント
+    private float m_CntSand = 0;
 
     //アイテム取得フラグ
     public bool ItemChecker = false;
@@ -91,6 +93,7 @@ public class rinPlayer2 : MonoBehaviour
                 float verticalInput = Input.GetAxis("Vertical");
                 Vector3 movement = new Vector3(0, 0f, 1) * m_CurrentSpeed * Time.deltaTime;
                 transform.Translate(movement);
+                if (m_CntSand >= 3) m_CntSand = 0;
             }
 
             if (Input.GetKey(KeyCode.A))
@@ -123,10 +126,14 @@ public class rinPlayer2 : MonoBehaviour
                         break;
                     //サンドイッチ
                     case 1:
-                        //m_MaxSpeed += 10;
-                        ItemChecker = false;
-                        rinneitem.getItem = false;
-                        rinneitem.m_UIObjects[SelectItem].SetActive(false);
+                        m_CntSand++;
+                        if (m_CntSand >= 3)
+                        {
+                            ItemChecker = false;
+                            rinneitem.getItem = false;
+                            rinneitem.m_UIObjects[SelectItem].SetActive(false);
+                        }
+                        isBoost = true;
                         break;
                     //デトックスウォーター
                     case 2:

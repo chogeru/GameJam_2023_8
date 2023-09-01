@@ -23,50 +23,46 @@ public class ImageSwitcherHaya : MonoBehaviour
         var rankChecer = rankChecerObj.GetComponent<RankCheckerHaya>();
         var rankText = rankChecer.GetRankText(); // "ジェシカ / サラ / コベル";
         var names = rankText.Split(" / ");
+        // スプライトを設定するオブジェクトの名前を定義
+        string[] resultObjectNames = { "Image_1st", "Image_2nd", "Image_3rd" };
 
-        for (int i = 0; i < 3; i++)
+        // names 配列に格納された名前ごとにスプライトを設定
+        for (int i = 0; i < Mathf.Min(names.Length, 3); i++)
         {
             var name = names[i];
-            GameObject resultObj =
-                (i == 1) ? GameObject.Find("Image_1st")
-                : (i == 2) ? GameObject.Find("Image_2nd")
-                : GameObject.Find("Image_3rd");
-
+            var resultObj = GameObject.Find(resultObjectNames[i]);
+            /*
+            for (int i = 0; i < 3; i++)
+            {
+                var name = names[i];
+                GameObject resultObj =
+                    (i == 1) ? GameObject.Find("Image_1st")
+                    : (i == 2) ? GameObject.Find("Image_2nd")
+                    : GameObject.Find("Image_3rd");
+                */
             switch (name)
             {
                 case "ジェシカ":
+                case "Playerジェシカ":
                     resultObj.GetComponent<Image>().sprite = jesika;
                     break;
                 case "サラ":
-                    resultObj.GetComponent<Image>().sprite = sara;
-                    break;
-                case "コベル":
-                    resultObj.GetComponent<Image>().sprite = koberu;
-                    break;
-                case "アナスタシア":
-                    resultObj.GetComponent<Image>().sprite = anasutasia;
-                    break;
-                case "シェリー":
-                    resultObj.GetComponent<Image>().sprite = shery;
-                    break;
-                case "スズカ":
-                    resultObj.GetComponent<Image>().sprite = suzuka;
-                    break;
-                case "Playerジェシカ":
-                    resultObj.GetComponent <Image>().sprite = jesika;
-                    break;
                 case "Playerサラ":
                     resultObj.GetComponent<Image>().sprite = sara;
                     break;
+                case "コベル":
                 case "Playerコベル":
                     resultObj.GetComponent<Image>().sprite = koberu;
                     break;
+                case "アナスタシア":
                 case "Playerアナスタシア":
                     resultObj.GetComponent<Image>().sprite = anasutasia;
                     break;
+                case "シェリー":
                 case "Playerシェリー":
                     resultObj.GetComponent<Image>().sprite = shery;
                     break;
+                case "スズカ":
                 case "Playerスズカ":
                     resultObj.GetComponent<Image>().sprite = suzuka;
                     break;

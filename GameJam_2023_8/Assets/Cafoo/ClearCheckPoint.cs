@@ -21,6 +21,9 @@ public class ClearCheckPoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        RankCheker.GetComponent<RankChecker>().ClearAllCheckPoint();
+        if (other.gameObject.CompareTag("Player"))
+        {
+            RankCheker.GetComponent<RankCheckerHaya>().ClearAllCheckPoint();
+        }
     }
 }

@@ -22,6 +22,8 @@ public class LapSystem : MonoBehaviour
     private float m_Time;
     [SerializeField]
     private GameObject m_GameObj;
+
+    public bool isGool=true;
     private void Start()
     {
         m_GameObj = GameObject.Find("ゲームオブジェクト");
@@ -66,6 +68,7 @@ public class LapSystem : MonoBehaviour
                 m_ClereSE.SetActive(true);
                 m_ClereEffect.SetActive(true);
                 isResult = true;
+                isGool = false;
               //  StartCoroutine(LoadSceneAfterDelay(3f, m_SceneName));
             }
         }

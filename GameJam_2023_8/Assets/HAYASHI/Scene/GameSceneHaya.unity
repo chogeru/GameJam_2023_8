@@ -809,6 +809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be656d2e21dbed4496c3802f1e91005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rapHit: {fileID: 1537694653}
   CarList: []
   CheckPoint:
   - {fileID: 515899297}
@@ -6331,7 +6332,7 @@ MonoBehaviour:
   m_GreadRenga: {fileID: 904206482}
   m_OriginalObject: {fileID: 547569897}
   isScaling: 0
-  m_ScaleChangeEffect: {fileID: 0}
+  m_ScaleChangeEffect: {fileID: 100018, guid: a40b64bf23366dc42a892af2c6ff6140, type: 3}
 --- !u!23 &547569895
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18137,6 +18138,7 @@ MonoBehaviour:
   m_TimerScript3: {fileID: 1124009025}
   m_ActiveTime: {fileID: 2060622483}
   m_ActiveTime2: {fileID: 1124009021}
+  m_Lap: 0
   m_StartLapUI: {fileID: 1129291265}
 --- !u!1 &1540303018
 GameObject:

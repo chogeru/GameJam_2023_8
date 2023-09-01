@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: -5053692511994088009}
   - component: {fileID: -6322490665190867523}
   - component: {fileID: 2465925146448413914}
-  - component: {fileID: 6597296695750175609}
+  - component: {fileID: -4896618777490433579}
   m_Layer: 3
   m_Name: Megane
   m_TagString: Player
@@ -313,6 +313,7 @@ MonoBehaviour:
   m_SceneName: ResultSceneHaya
   m_ResultCanvas: {fileID: 5083499604496157455, guid: a30059bbe3a960242b2d3558ad880c33, type: 3}
   m_GameObj: {fileID: 0}
+  isGool: 0
 --- !u!135 &3119052068360996012
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -378,7 +379,7 @@ MonoBehaviour:
   m_ItemSetSE: {fileID: 0}
   randomIndex: 0
   getItem: 0
---- !u!114 &6597296695750175609
+--- !u!114 &-4896618777490433579
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -387,7 +388,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3063110765991997996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 247c4f807cf524b4ba3350d5e7caa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e23e82901a5baa44bff30ce0540228e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_AccelerationRate: 20
@@ -395,8 +396,8 @@ MonoBehaviour:
   m_JumpForce: 10
   m_RotationSpeed: 90
   m_CurrentSpeed: 0
-  m_ItemEffect: {fileID: 0}
-  m_ItemGetSE: {fileID: 0}
+  m_ItemEffect: {fileID: 6781723888602184034, guid: 9e278b7c09cd6a442b14108c474c8448, type: 3}
+  m_ItemGetSE: {fileID: 8300000, guid: 4cbd9b0fb5b3e8141a6b88eae7834a14, type: 3}
   ItemChecker: 0
   SelectItem: 0
   ChengePlayer: 0

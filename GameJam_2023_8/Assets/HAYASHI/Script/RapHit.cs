@@ -16,7 +16,7 @@ public class RapHit : MonoBehaviour
     private GameObject m_ActiveTime;
     [SerializeField]
     private GameObject m_ActiveTime2;
-    private int m_Lap;
+    public int m_Lap;
     [SerializeField]
     private GameObject m_StartLapUI;
     private float m_StartUITime=3;

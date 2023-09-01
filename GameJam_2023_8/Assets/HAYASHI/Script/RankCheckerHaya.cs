@@ -6,6 +6,8 @@ using UnityEngine;
 public class RankCheckerHaya : MonoBehaviour
 {
     [SerializeField]
+    RapHit rapHit;
+    [SerializeField]
     private GameObject[] CarList;
     // Start is called before the first frame update
 
@@ -55,21 +57,23 @@ public class RankCheckerHaya : MonoBehaviour
             //CarRankCalc[i] = (CarList[i].transform.position.z -  point.z);
             CarRankCalc[i] = Vector3.Distance(CarList[i].transform.position, point);
         }
-
-        //èáà ï¿Ç—ë÷Ç¶
-        for(int i=0;i< CarRankCalc.Length;i++)
+        if(rapHit.m_Lap<3)
         {
-            for(int j = i+1; j < CarRankCalc.Length;j++)
+            //èáà ï¿Ç—ë÷Ç¶
+            for (int i = 0; i < CarRankCalc.Length; i++)
             {
-                if (CarRankCalc[i] > CarRankCalc[j])
+                for (int j = i + 1; j < CarRankCalc.Length; j++)
                 {
-                    float tmp = CarRankCalc[i];
-                    CarRankCalc[i] = CarRankCalc[j];
-                    CarRankCalc[j] = tmp;
+                    if (CarRankCalc[i] > CarRankCalc[j])
+                    {
+                        float tmp = CarRankCalc[i];
+                        CarRankCalc[i] = CarRankCalc[j];
+                        CarRankCalc[j] = tmp;
 
-                    GameObject obj = CarList[i];
-                    CarList[i] = CarList[j];
-                    CarList[j] = obj;
+                        GameObject obj = CarList[i];
+                        CarList[i] = CarList[j];
+                        CarList[j] = obj;
+                    }
                 }
             }
         }
@@ -101,6 +105,7 @@ public class RankCheckerHaya : MonoBehaviour
     private void CarTagGet()
     {
         CarList = GameObject.FindGameObjectsWithTag("Car");
+        //lapSystem = FindObjectOfType<LapSystem>();
         CarRankCalc = new float[CarList.Length];
         isCheck = false;
     }

@@ -38,18 +38,21 @@ public class rinPlayer2 : MonoBehaviour
 
     //パワーアップによるプレイヤーの見た目
     public int ChengePlayer;
-    public GameObject wara;
-    public GameObject ki;
-    public GameObject renga;
+    [SerializeField]
+    private GameObject wara;
+    [SerializeField]
+    private GameObject ki;
+    [SerializeField]
+    private GameObject renga;
     Vector3 movement;
     public int count;
 
     private void Start()
     {
         rinneitem = GetComponent<rinneItem>();
-        wara = GameObject.Find("MeganeWara");
-        ki = GameObject.Find("MeganeKi");
-        renga = GameObject.Find("MeganeRenga");
+        //wara = GameObject.Find("MeganeWara");
+        //ki = GameObject.Find("MeganeKi");
+        //renga = GameObject.Find("MeganeRenga");
         m_motoMaxSpeed = m_MaxSpeed;
     }
     void Update()

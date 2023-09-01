@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class RankCheckerHaya : MonoBehaviour
 {
-    private static RankCheckerHaya instance;
-
     [SerializeField]
     private GameObject[] CarList;
     // Start is called before the first frame update
@@ -28,11 +26,6 @@ public class RankCheckerHaya : MonoBehaviour
     void Start()
     {
         isCheck = true;
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
     }
 
     // Update is called once per frame

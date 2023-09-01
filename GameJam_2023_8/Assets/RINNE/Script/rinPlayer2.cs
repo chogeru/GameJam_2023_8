@@ -26,7 +26,7 @@ public class rinPlayer2 : MonoBehaviour
     private float m_Time;
 
     //アイテム取得フラグ
-    bool ItemChecker = false;
+    public bool ItemChecker = false;
     rinneItem rinneitem;
     public int SelectItem;
 
@@ -35,6 +35,8 @@ public class rinPlayer2 : MonoBehaviour
     public GameObject wara;
     public GameObject ki;
     public GameObject renga;
+    Vector3 movement;
+    public int count;
 
     private void Start()
     {
@@ -57,7 +59,7 @@ public class rinPlayer2 : MonoBehaviour
 
 
             float verticalInput = Input.GetAxis("Vertical");
-            Vector3 movement = new Vector3(0, 0f, 1) * m_CurrentSpeed * Time.deltaTime;
+            movement = new Vector3(0, 0f, 1f) * m_CurrentSpeed * Time.deltaTime;
             transform.Translate(movement);
 
 
@@ -73,7 +75,7 @@ public class rinPlayer2 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.E))
         {
-            if (ItemChecker)
+            if (ItemChecker && !rinneitem.isCanActivateUI)
             {
                 switch(SelectItem)
                 {
@@ -82,18 +84,20 @@ public class rinPlayer2 : MonoBehaviour
                         m_MaxSpeed += 10;
                         ChengePlayer++;
                         ItemChecker = false;
+                        rinneitem.getItem = false;
                         rinneitem.m_UIObjects[SelectItem].SetActive(false);
                         break;
                     //サンドイッチ
                     case 1:
                         //m_MaxSpeed += 10;
                         ItemChecker = false;
+                        rinneitem.getItem = false;
                         rinneitem.m_UIObjects[SelectItem].SetActive(false);
                         break;
                     //デトックスウォーター
                     case 2:
-                        //m_MaxSpeed += 10;
                         ItemChecker = false;
+                        rinneitem.getItem = false;
                         rinneitem.m_UIObjects[SelectItem].SetActive(false);
                         break;
                 }
@@ -104,7 +108,6 @@ public class rinPlayer2 : MonoBehaviour
             }
         }
         SelectItem = rinneitem.randomIndex;
-
         switch(ChengePlayer)
         {
             case 0:

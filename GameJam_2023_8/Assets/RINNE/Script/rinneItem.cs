@@ -16,7 +16,7 @@ public class rinneItem : MonoBehaviour
     [SerializeField]
     private bool isItemGet;
     // UIをアクティブにする許可フラグ
-    private bool isCanActivateUI = false;
+    public bool isCanActivateUI = false;
     // UIをアクティブにするまでの待機時間
     private float m_ActivationDelay = 3f;
     // 待機タイマー
@@ -26,6 +26,7 @@ public class rinneItem : MonoBehaviour
     [SerializeField, Header("アイテム確定時のSE")]
     private GameObject m_ItemSetSE;
     public int randomIndex;
+    public bool getItem = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,15 +48,18 @@ public class rinneItem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Item"))
+        if (other.CompareTag("Item") && !getItem)
         {
             m_ItemGetAnimeObj.SetActive(true);
             //UIアクティブ
             isCanActivateUI = true;
             //アイテムゲット時のSEを再生
             m_ItemGetSE.SetActive(true);
+            //アイテム確定時のSEを消す
+            m_ItemSetSE.SetActive(false);
+            getItem = true;
             // 待機タイマーを初期化
-            m_ActivationTimer = 0f;
+            //m_ActivationTimer = 0f;
         }
     }
 

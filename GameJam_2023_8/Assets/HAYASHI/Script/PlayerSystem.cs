@@ -83,7 +83,7 @@ public class PlayerSystem : MonoBehaviour
                 m_BoostTime += Time.deltaTime;
                 if (m_BoostTime < 1.5f)
                 {
-                    m_MaxSpeed += 5f;
+                    m_MaxSpeed += 3f;
 
                     float verticalInput = Input.GetAxis("Vertical");
                     Vector3 movement = new Vector3(0, 0f, 1) * m_CurrentSpeed * 1.1f * Time.deltaTime;
@@ -124,11 +124,11 @@ public class PlayerSystem : MonoBehaviour
                 {
                     //ƒXƒCƒJ
                     case 0:
-                        if(m_MaxSpeed < 35)
+                        if(m_MaxSpeed < 30)
                         {
                             m_ItemSE.SetActive(true);
                             m_SpeedUpEffect.SetActive(true);isEffectActive= true;
-                            m_MaxSpeed += 5;
+                            m_MaxSpeed += 4;
                             m_motoMaxSpeed = m_MaxSpeed;
                         }
                         ChengePlayer++;

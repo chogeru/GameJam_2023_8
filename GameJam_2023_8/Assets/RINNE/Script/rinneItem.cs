@@ -27,6 +27,7 @@ public class rinneItem : MonoBehaviour
     private GameObject m_ItemSetSE;
     public int randomIndex;
     public bool getItem = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +50,22 @@ public class rinneItem : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Item") && !getItem)
+        {
+            m_ItemGetAnimeObj.SetActive(true);
+            //UIアクティブ
+            isCanActivateUI = true;
+            //アイテムゲット時のSEを再生
+            m_ItemGetSE.SetActive(true);
+            //アイテム確定時のSEを消す
+            m_ItemSetSE.SetActive(false);
+            getItem = true;
+            // 待機タイマーを初期化
+            //m_ActivationTimer = 0f;
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Item") && !getItem)
         {
             m_ItemGetAnimeObj.SetActive(true);
             //UIアクティブ

@@ -11,6 +11,8 @@ TagManager:
   - RapText
   - ItemUI
   - CheckPoint
+  - FxTemporaire
+  - Human
   layers:
   - Default
   - TransparentFX

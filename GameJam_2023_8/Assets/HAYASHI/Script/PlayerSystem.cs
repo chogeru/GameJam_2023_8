@@ -57,6 +57,8 @@ public class PlayerSystem : MonoBehaviour
     private float m_EffectFalseTime = 1.5f;
     private float m_EffectCoolTime;
 
+    private Transform m_PlayerTransfrom;
+    private Rigidbody rd;
     private void Start()
     {
         rinneitem = GetComponent<rinneItem>();
@@ -65,6 +67,7 @@ public class PlayerSystem : MonoBehaviour
         //renga = GameObject.Find("MeganeRenga");
         m_motoMaxSpeed = m_MaxSpeed;
         m_SpeedUpEffect.SetActive(false);
+        rd=GetComponent<Rigidbody>();
     }
     void Update()
     {
@@ -86,8 +89,11 @@ public class PlayerSystem : MonoBehaviour
                     m_MaxSpeed += 3f;
 
                     float verticalInput = Input.GetAxis("Vertical");
+                    Vector3 movement=new Vector3(0,0,verticalInput) + m_CurrentSpeed*transform.forward;
+                    rd.velocity=movement;
+                    /*
                     Vector3 movement = new Vector3(0, 0f, 1) * m_CurrentSpeed * 1.1f * Time.deltaTime;
-                    transform.Translate(movement);
+                    transform.Translate(movement);*/
 
                 }
                 else
@@ -100,8 +106,8 @@ public class PlayerSystem : MonoBehaviour
             {
                 m_MaxSpeed = m_motoMaxSpeed;
                 float verticalInput = Input.GetAxis("Vertical");
-                Vector3 movement = new Vector3(0, 0f, 1) * m_CurrentSpeed * Time.deltaTime;
-                transform.Translate(movement);
+                Vector3 movement = new Vector3(0, 0, verticalInput) + m_CurrentSpeed * transform.forward;
+                rd.velocity = movement;
                 if (m_CntSand >= 3) m_CntSand = 0;
             }
 
@@ -208,6 +214,18 @@ public class PlayerSystem : MonoBehaviour
             Instantiate(m_ItemEffect.gameObject.transform);
             //m_MaxSpeed += 5;
             //m_AccelerationRate += 5;
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Item") && !ItemChecker)
+        {
+            ItemChecker = true;
+            m_ItemSE.SetActive(false);
+            //サウンドの再生
+            AudioSource.PlayClipAtPoint(m_ItemGetSE, transform.position, mVolume);
+            //パーティクルの複製
+            Instantiate(m_ItemEffect.gameObject.transform);
         }
     }
 }

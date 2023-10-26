@@ -51,6 +51,8 @@ public class PlayerSystem : MonoBehaviour
 
     [SerializeField, Header("アイテム使用時のサウンド")]
     private GameObject m_ItemSE;
+    [SerializeField]
+    private GameObject m_ItemGetEffect;
     [SerializeField, Header("スピードアップ用エフェクト")]
     private GameObject m_SpeedUpEffect;
     private bool isEffectActive=false;
@@ -132,6 +134,7 @@ public class PlayerSystem : MonoBehaviour
                     case 0:
                         if(m_MaxSpeed < 30)
                         {
+                            m_ItemGetEffect.SetActive(true);
                             m_ItemSE.SetActive(true);
                             m_SpeedUpEffect.SetActive(true);isEffectActive= true;
                             m_MaxSpeed += 4;
@@ -146,6 +149,7 @@ public class PlayerSystem : MonoBehaviour
                     case 1:
                         m_CntSand++;
                         m_ItemSE.SetActive(true);
+                        m_ItemGetEffect.SetActive(true);
                         m_SpeedUpEffect.SetActive(true); isEffectActive = true;
                         if (m_CntSand >= 3)
                         {
@@ -158,6 +162,7 @@ public class PlayerSystem : MonoBehaviour
                     //デトックスウォーター
                     case 2:
                         m_ItemSE.SetActive(true);
+                        m_ItemGetEffect.SetActive(true);
                         m_SpeedUpEffect.SetActive(true); isEffectActive = true;
                         isBoost = true;
                         ItemChecker = false;
@@ -195,6 +200,7 @@ public class PlayerSystem : MonoBehaviour
             m_EffectCoolTime += Time.deltaTime;
             if(m_EffectCoolTime >m_EffectFalseTime)
             {
+                m_ItemGetEffect.SetActive(false);
                 m_SpeedUpEffect.SetActive(false);
                 m_ItemSE.SetActive(false);
                 m_EffectCoolTime = 0;

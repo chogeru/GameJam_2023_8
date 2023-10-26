@@ -1,9 +1,9 @@
-using Microsoft.Unity.VisualStudio.Editor;
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Progress;
+
 
 public class ItemBoxAnimeTion1 : MonoBehaviour
 {

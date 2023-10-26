@@ -122,7 +122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6027399929102212831}
         m_TargetAssemblyTypeName: ButtonSceneLoadSystem, Assembly-CSharp
         m_MethodName: ButtonSceneChange
         m_Mode: 1
@@ -383,6 +383,7 @@ GameObject:
   - component: {fileID: 5083499604496157449}
   - component: {fileID: 5083499604496157448}
   - component: {fileID: 5083499604496156916}
+  - component: {fileID: 6027399929102212831}
   m_Layer: 5
   m_Name: ResultCanvas
   m_TagString: Untagged
@@ -450,10 +451,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -497,6 +498,19 @@ MonoBehaviour:
   anasutasia: {fileID: 21300000, guid: f0f6b121b19ff5743b97e33a318f0948, type: 3}
   shery: {fileID: 21300000, guid: 5366ed2cf61fd164fb1af6e0d5d99498, type: 3}
   suzuka: {fileID: 21300000, guid: e4bc076d570a7ab448f26ae916e968f9, type: 3}
+  m_SceneName: TitleHaya
+--- !u!114 &6027399929102212831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5083499604496157455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15379acb1f4460f46b98b022a1a80e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_SceneName: TitleHaya
 --- !u!1001 &5083499603399434680
 PrefabInstance:
